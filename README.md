@@ -57,6 +57,25 @@ Detalhes visuais do site: os **elos** (dois anéis que se desenham em volta das 
 2. Fase 1 (briefing): `/briefing`. Fase 2 (referências): `/referencias`. Fase 3: `/construir-site`. Prévias: `/previa`.
 3. Documentos estratégicos (briefing, concorrentes, contrato) ficam no **Drive**, nunca aqui.
 
+## Para retomar o trabalho (leia antes de continuar)
+
+Estado em 26/11/2026: a **prévia 1 está pronta e interna**, ainda sem publicar. Os 4 questionários da empresa (Profissional, Persona, Mercado e Concorrentes) estão completos no Drive, na pasta @CorreiaSaúde, e aguardam o envio e as respostas da Júlia. Os documentos ficam no Drive; nada deles entra neste repositório.
+
+**Decisões já tomadas (Felipe)**
+- Este repositório é o site da **empresa**; o site pessoal da Júlia é outro projeto e não se mistura.
+- Marca aprovada e liberada para o site, junto com as fotos da própria Júlia. Fotos da equipe, de eventos e de pacientes só com autorização escrita de cada pessoa.
+- O nome oficial da empresa continua pendente: nos textos, só "Correia".
+- O modelo do site segue o padrão das LPs anteriores (estrutura e engenharia); identidade, textos e fotos são só da Correia.
+- Publicar a prévia só depois da revisão independente (`/previa`), sempre com `noindex`.
+
+**Próximos passos**
+1. Felipe envia os questionários à Júlia (acesso de editor a ela; decidir sobre a conta com acesso à pasta).
+2. Com as respostas: rodar `/briefing`, trocar os textos de rascunho e preencher as fichas da equipe, os bairros, os planos e os dados da empresa.
+3. Rodar `/previa` (revisão independente, publicação com `noindex`, mensagem para a cliente).
+4. Prévia 2: ajustes, GTM com o ID do gestor de tráfego, dados para o Google, `docs/gtm-passo-a-passo.md`.
+
+**Como o Felipe prefere trabalhar:** respostas curtas quando ele pedir; conferência completa de cada arquivo antes de liberar; avisar antes de qualquer ação que mude permissões ou publique algo.
+
 ## Pendências de conteúdo
 
 **Empresa**
