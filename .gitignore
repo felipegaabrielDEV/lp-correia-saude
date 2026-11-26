@@ -7,10 +7,9 @@ capturas/
 .DS_Store
 Thumbs.db
 
-# Arquivos da identidade visual "Correia · Longevidade & Saúde" (logotipos, símbolo, pattern, capas).
-# O contrato da designer condiciona o uso ao pagamento integral e à aprovação final:
-# tirar esta linha só depois que o Felipe confirmar os dois.
-assets/marca/
+# Arquivos-fonte da identidade visual (PNG originais, manual, mockups): ficam no Drive.
+# No repositório entram só as versões otimizadas para o site (assets/marca/*.webp e o favicon).
+assets/marca-originais/
 
 # Fotos da equipe e de eventos: só entram, já em WebP, com autorização escrita de cada pessoa
 # e depois de conferir a norma do COFFITO. Não commitar originais nem fotos sem autorização.
