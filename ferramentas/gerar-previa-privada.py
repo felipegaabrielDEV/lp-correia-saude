@@ -53,6 +53,7 @@ with open(SAIDA, "w", encoding="utf-8") as f:
 politica = ler("politica-de-privacidade.html").decode("utf-8")
 politica = re.sub(r'<link rel="stylesheet" href="styles\.css[^"]*">', lambda m: "<style>" + ler("styles.css").decode("utf-8") + "</style>", politica)
 politica = re.sub(r'<script src="consent\.js[^"]*" defer></script>', lambda m: "<script>" + ler("consent.js").decode("utf-8") + "</script>", politica)
+politica = re.sub(r'assets/[\w./-]+\.(?:webp|jpg|jpeg|png)', lambda m: data_uri(m.group(0)), politica)
 with open(os.path.join(os.path.dirname(SAIDA), "politica-de-privacidade.html"), "w", encoding="utf-8") as f:
     f.write(politica)
 
