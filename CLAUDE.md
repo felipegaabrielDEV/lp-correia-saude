@@ -51,9 +51,9 @@ Nada interno entra aqui: faturamento, preços e pacotes, **contrato e valores da
 
 ### 2. Publicidade em fisioterapia
 
-Regras de trabalho conservadoras **até a norma vigente do COFFITO e do CREFITO ser conferida por escrito** (não cite resolução ou artigo de memória como se fosse certeza). Para **pessoa jurídica**, a norma sobre registro da empresa no CREFITO, responsável técnico e o que a divulgação deve mostrar também precisa ser conferida: é PENDENTE.
+Regras de trabalho conservadoras **até a norma vigente do COFFITO e do CREFITO ser conferida por escrito** (não cite resolução ou artigo de memória como se fosse certeza). Para **pessoa jurídica**, a leitura das normas oficiais feita em 25 e 26/11/2026 está no README (seção "Normas lidas"); ela vale como regra de trabalho até a confirmação por escrito com o CREFITO-17, que continua PENDENTE.
 
-- Nome da empresa, CNPJ, CREFITO da empresa e responsável técnico visíveis (rodapé e bloco Quem somos), **assim que confirmados**.
+- Nome da empresa, **número de registro da empresa no CREFITO** (obrigatório em anúncio, Resolução COFFITO 37/1984, art. 28), CNPJ e responsável técnico visíveis (rodapé e bloco Quem somos), **assim que confirmados**. A empresa só usa a palavra "fisioterapia" no nome depois de registrada.
 - Cada profissional da equipe aparece com **nome, "Fisioterapeuta" e número do CREFITO**. Sem os três, não entra.
 - "Especialista" só com título reconhecido e registrado **em nome da pessoa**. No site, use **"área de atuação"** (não "especialidade"). Pós-graduação em andamento não dá título: diga "em especialização" só se a pessoa confirmar.
 - Sem preço, desconto, parcelamento, "grátis" ou condição comercial no site.
