@@ -2,7 +2,7 @@
    Eventos da página para o Google Tag Manager (dataLayer)
    O site só AVISA o que aconteceu. Quem decide o que vai para GA4, Meta Pixel e
    Clarity é o painel do GTM, sempre respeitando o aviso de cookies (consent.js).
-   Passo a passo para o gestor de tráfego: docs/gtm-passo-a-passo.md (a criar na prévia 2).
+   Passo a passo para o gestor de tráfego: docs/gtm-passo-a-passo.md (mude o guia junto se mudar um evento).
 
    Cada evento leva um event_id único, para as plataformas não contarem a mesma
    ação duas vezes. Eventos do formulário (lead-form.js): form_open, form_start,
