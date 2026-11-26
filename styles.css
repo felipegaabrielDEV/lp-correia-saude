@@ -282,7 +282,7 @@ html:not(.js) .palavra { opacity: 1; transform: none; }
 .equipe-cabeca p:not(.marcador) { color: var(--texto-2); }
 .equipe-cabeca .marcador { margin-inline: auto; }
 .equipe-titulo { font-size: clamp(1.8rem, 3.6vw, 2.5rem); }
-.equipe { position: relative; list-style: none; margin: 0 0 40px; padding: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); }
+.equipe { position: relative; isolation: isolate; list-style: none; margin: 0 0 40px; padding: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); }
 /* No celular e no tablet, a ficha da fundadora ocupa a linha inteira; as outras ficam lado a lado */
 @media (max-width: 1023px) { .membro:first-child { grid-column: 1 / -1; } }
 .membro { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 26px 18px 22px; background: var(--creme-claro); border: 1px solid var(--linha); border-radius: var(--raio); transition: transform .4s var(--ease), box-shadow .4s var(--ease), opacity .8s var(--ease); }
