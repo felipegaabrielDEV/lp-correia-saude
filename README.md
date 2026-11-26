@@ -1,6 +1,6 @@
 # Correia — Landing Page | Fisioterapia domiciliar para idosos
 
-> 🚧 **Em preparação (fase 1: Preparação).** Ainda não há site: este repositório tem o kit de trabalho adaptado para a empresa. Toda página publicada leva `noindex, nofollow` até a aprovação final.
+> 🚧 **Prévia 1 em construção (interna).** Estrutura, identidade e textos de primeira versão, com marcadores de rascunho e de pendência. Toda página publicada leva `noindex, nofollow` até a aprovação final.
 
 Landing page da **empresa Correia**, de fisioterapia domiciliar para pessoas idosas em Aracaju/SE, fundada pela fisioterapeuta **Júlia Gabriely** (CREFITO-17 408355-F) e com equipe de fisioterapeutas: levar a pessoa certa a agendar a avaliação pelo WhatsApp, e mostrar **quem da equipe atende o quê**.
 
@@ -10,10 +10,11 @@ Landing page da **empresa Correia**, de fisioterapia domiciliar para pessoas ido
 
 | Fase | Estado |
 |---|---|
-| 1. Preparação | Em andamento: pasta no Drive criada, repositório criado, kit adaptado. Faltam nome oficial, dados da empresa e domínio |
+| 1. Preparação | Feita: pasta no Drive, repositório e kit adaptado. Faltam nome oficial, dados da empresa e domínio |
 | 2. Questionários | Os 4 da empresa foram criados e o "Nosso levantamento" foi preenchido (dados públicos, normas e concorrentes, em 25 e 26/11/2026). Aguardam as respostas da Júlia |
-| 3. Roteiro | Depende das respostas |
-| 4 em diante | Não iniciadas |
+| 3. Roteiro | Primeira versão dentro da prévia 1, a validar com as respostas |
+| 4. Construção | Prévia 1 interna feita em 26/11/2026 (estrutura, identidade, formulário, cookies, política e 404). Ainda não publicada |
+| 5 em diante | Não iniciadas |
 
 ## O que o site terá (plano, a validar no briefing)
 
@@ -23,7 +24,9 @@ Formulário curto antes do WhatsApp, aviso de cookies (LGPD) com tudo negado por
 
 ## Identidade visual
 
-"Correia · Longevidade & Saúde", com o monograma "C" de elos. Paleta oficial: `#3E431B` verde-oliva escuro · `#908F68` verde-sálvia · `#F5EEDD` creme · `#A76F4E` marrom. Tom: tradicional, acessível, madura e emocional; nada delicado nem infantil. Fontes: PENDENTES (usar equivalentes do Google Fonts e avisar). Os arquivos da marca ficam **fora do repositório** (`assets/marca/` no `.gitignore`) até o Felipe confirmar o pagamento e a aprovação final com a designer.
+"Correia · Longevidade & Saúde", com o monograma "C" de elos. Paleta oficial: `#3E431B` verde-oliva escuro · `#908F68` verde-sálvia · `#F5EEDD` creme · `#A76F4E` marrom. Tom: tradicional, acessível, madura e emocional; nada delicado nem infantil. Fontes da marca: PENDENTES; no site, **Playfair Display** (títulos) e **Lexend** (texto) são equivalentes provisórios do Google Fonts. Marca aprovada e liberada para o site (confirmação do Felipe em 26/11/2026): logotipo, símbolo e ladrilho em `assets/marca/`, fotos da Júlia em `assets/fundadora/`.
+
+Detalhes visuais do site: os **elos** (dois anéis que se desenham em volta das fotos, o gesto do símbolo) e o **ladrilho** (o símbolo repetido, quase invisível, nas faixas escuras). Terracota só em título grande; em texto pequeno, a versão mais escura (contraste AA).
 
 ## Estrutura
 
@@ -32,11 +35,21 @@ Formulário curto antes do WhatsApp, aviso de cookies (LGPD) com tudo negado por
 ├── .claude/         # Skills (briefing, referencias, construir-site, previa) e agentes (pesquisador, revisor)
 │   └── skills/construir-site/  # padrao-tecnico.md e capturar.js
 ├── ferramentas/     # gerar-previa-privada.py (prévia em arquivo único, para mostrar antes de publicar)
+├── index.html       # Página única
+├── styles.css       # Tokens da marca no :root
+├── script.js        # Menu, WhatsApp por origem, "Quem atende" (a partir das fichas da equipe), animações
+├── lead-form.js     # Formulário antes do WhatsApp (4 perguntas, sem dado de saúde)
+├── consent.js       # Aviso de cookies (LGPD) e Modo de Consentimento
+├── eventos.js       # Eventos para o GTM (window.correiaTrack)
+├── politica-de-privacidade.html
+├── 404.html
+├── assets/marca/    # Logotipo, símbolo, ladrilho e favicon (WebP/PNG otimizados)
+├── assets/fundadora/# Fotos da Júlia (WebP, 2 tamanhos cada)
 ├── docs/            # (a criar) sites-espelho e passo a passo do GTM
 └── .gitignore
 ```
 
-O site em si (`index.html`, `styles.css`, scripts, política e 404) será construído na fase 3, a partir do padrão técnico.
+**Equipe e "Quem atende":** as fichas da equipe ficam num bloco único do `index.html` (seção Quem somos). Cada ficha tem `data-nome` e `data-areas` (`neurologica`, `ortopedica`, `prevencao`); o `script.js` escreve sozinho o "Quem atende" de cada cuidado. Para incluir uma fisioterapeuta, preencha a ficha; para ligar a um cuidado, acrescente a área em `data-areas`.
 
 ## Como trabalhar
 
@@ -61,14 +74,23 @@ O site em si (`index.html`, `styles.css`, scripts, política e 404) será constr
 - [PENDENTE] Controlador dos dados e e-mail de contato para a política de privacidade (revisão jurídica)
 
 **Equipe e Júlia**
+- [PENDENTE] Se as 5 fisioterapeutas incluem a Júlia (a prévia mostra a Júlia e mais 4 fichas)
 - [PENDENTE] Ficha de cada fisioterapeuta da equipe (5 confirmadas pela Júlia): nome como quer aparecer, CREFITO, formação, áreas de atuação, o que não atende
 - [PENDENTE] Foto de cada pessoa e autorização escrita para usar a imagem
 - [PENDENTE] Se alguma profissional tem título de especialista e RQE (a Júlia não tem; nunca usar "especialista" sem título registrado)
 - [PENDENTE] Situação da pós-graduação da Júlia em Saúde do Idoso e Gerontologia (concluída ou em andamento) e uso de "em especialização"
 - [PENDENTE] Confirmar o uso de "Dra." junto ao CREFITO
 
+**Textos da prévia 1 (rascunho, a validar com a Júlia)**
+- [PENDENTE] Título e texto do topo ("Cuidado de família para família, na casa de quem você ama"), a partir do briefing de marca
+- [PENDENTE] Sinais de "Para quem é", lista de cuidados (neurológica, ortopédica, prevenção e autonomia) e serviços completos
+- [PENDENTE] Passos de "Como funciona": duração e o que inclui a primeira consulta, frequência, como a família acompanha
+- [PENDENTE] Áreas de atuação de cada fisioterapeuta, inclusive as da Júlia na empresa (o "Quem atende" mostra pendência até lá)
+- [PENDENTE] Texto sobre a origem do nome e frases dos quatro "elos" (palavras da paleta da marca)
+- [PENDENTE] Respostas do FAQ: pedido médico e se a família acompanha os atendimentos
+- [PENDENTE] Se "Envelhecer com saúde, viver com qualidade." (bio do Instagram) é o slogan oficial
+
 **Marca**
-- [PENDENTE] Confirmar pagamento integral e aprovação final da identidade com a designer (condição de uso dos arquivos)
 - [PENDENTE] Arquivos finais da marca: vetores (SVG/AI), símbolo com fundo transparente, logotipo vertical e fontes com licença
 - [PENDENTE] Nomes das fontes tipográficas da marca
 - [PENDENTE] Papel do mockup de aplicações (imagens de banco; não usar no site sem conferir a licença)
