@@ -189,6 +189,14 @@
         revelar.forEach(el => obs.observe(el));
     }
 
+    /* ---------- Botões de chamada: a animação só roda enquanto o botão está na tela ----------
+       O CSS pausa tudo o que tem a classe .parada (ver .botao-destaque no styles.css). */
+    const botoesDestaque = document.querySelectorAll(".botao-destaque");
+    if ("IntersectionObserver" in window && botoesDestaque.length) {
+        const obsBotoes = new IntersectionObserver(es => es.forEach(en => en.target.classList.toggle("parada", !en.isIntersecting)), { rootMargin: "80px" });
+        botoesDestaque.forEach(b => obsBotoes.observe(b));
+    }
+
     /* ---------- Prévia: mostrar/ocultar marcadores de rascunho e pendência ---------- */
     const alternar = document.querySelector(".previa-alternar");
     if (alternar) {

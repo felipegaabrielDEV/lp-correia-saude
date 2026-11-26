@@ -92,13 +92,37 @@ body.sem-marcadores .pendente, body.sem-marcadores .marcador { display: none; }
 @media (max-width: 479px) { .botao { padding: 14px 20px; gap: 8px; font-size: .96rem; text-wrap: balance; } }
 .botao-pequeno { min-height: 46px; padding: 10px 20px; font-size: .88rem; box-shadow: none; }
 .botao-claro { background: var(--creme); color: var(--oliva); box-shadow: 0 12px 26px rgba(0, 0, 0, .2); }
-/* Brilho que passa pelo botão de tempos em tempos */
-.botao-destaque::after { content: ""; position: absolute; top: 0; bottom: 0; left: -40%; width: 30%; background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .32), transparent); transform: skewX(-18deg); animation: brilho 5.5s var(--ease) infinite; pointer-events: none; }
-.botao-claro.botao-destaque::after { background: linear-gradient(100deg, transparent, rgba(167, 111, 78, .25), transparent); }
-@keyframes brilho { 0%, 62% { left: -40%; } 88%, 100% { left: 130%; } }
+/* Botão de chamada (WhatsApp): mesmo efeito do site da Nayane, nas cores da Correia.
+   Degradê que desliza, pulso com halo, brilho que cruza o botão e ícone do WhatsApp balançando.
+   O degradê vai do oliva-escuro a #4C5222, para o texto creme manter contraste AA (7:1).
+   Para usar em outro botão, some a classe .botao-destaque; para a versão sobre fundo escuro, some também .botao-claro. */
+.botao-destaque { isolation: isolate; border: 1px solid rgba(245, 238, 221, .14); background: linear-gradient(115deg, var(--oliva-escuro), var(--oliva) 52%, #4C5222); background-size: 220% 100%; box-shadow: 0 14px 32px -12px rgba(62, 67, 27, .6); transition: transform .25s var(--ease), box-shadow .25s var(--ease), background-position .45s var(--ease); animation: botaoAtrai 1.9s ease-in-out infinite; }
+.botao-destaque::after { content: ""; position: absolute; z-index: -1; top: -100%; left: -35%; width: 24%; height: 300%; background: linear-gradient(90deg, transparent, rgba(245, 238, 221, .3), transparent); transform: rotate(18deg); animation: botaoBrilho 3.6s ease-in-out infinite; pointer-events: none; }
+.botao-destaque svg { animation: botaoWhats 2.4s ease-in-out infinite; }
+.botao-destaque:active { transform: translateY(-1px) scale(.985); box-shadow: 0 9px 22px -10px rgba(62, 67, 27, .6); }
+@keyframes botaoBrilho { 0%, 60% { left: -35%; } 85%, 100% { left: 125%; } }
+@keyframes botaoAtrai {
+    0%, 100% { transform: translateY(0) scale(1); background-position: 0 0; box-shadow: 0 14px 32px -12px rgba(62, 67, 27, .6), 0 0 0 0 rgba(167, 111, 78, 0); }
+    45% { transform: translateY(-3px) scale(1.035); background-position: 100% 0; box-shadow: 0 22px 44px -14px rgba(44, 48, 18, .7), 0 0 0 10px rgba(167, 111, 78, .18); }
+    70% { transform: translateY(0) scale(1); box-shadow: 0 14px 32px -12px rgba(62, 67, 27, .6), 0 0 0 16px rgba(167, 111, 78, 0); }
+}
+@keyframes botaoWhats { 0%, 55%, 100% { transform: none; } 65% { transform: rotate(-8deg) scale(1.16); } 75% { transform: rotate(7deg) scale(1.16); } }
+/* Versão clara, para o botão creme sobre faixas escuras: o fundo continua creme e o halo é claro */
+.botao-destaque.botao-claro { background: var(--creme); border: 2px solid var(--creme); color: var(--oliva); box-shadow: 0 14px 30px -14px rgba(0, 0, 0, .55); animation-name: botaoAtraiClaro; }
+.botao-destaque.botao-claro::after { background: linear-gradient(90deg, transparent, rgba(167, 111, 78, .28), transparent); }
+@keyframes botaoAtraiClaro {
+    0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 14px 30px -14px rgba(0, 0, 0, .55), 0 0 0 0 rgba(245, 238, 221, 0); }
+    45% { transform: translateY(-3px) scale(1.035); box-shadow: 0 22px 44px -14px rgba(0, 0, 0, .65), 0 0 0 10px rgba(245, 238, 221, .25); }
+    70% { transform: translateY(0) scale(1); box-shadow: 0 14px 30px -14px rgba(0, 0, 0, .55), 0 0 0 16px rgba(245, 238, 221, 0); }
+}
+/* Botão fora da tela: animação pausada (classe posta pelo script.js), para não gastar bateria à toa */
+.botao-destaque.parada, .botao-destaque.parada::after, .botao-destaque.parada svg { animation-play-state: paused; }
 @media (hover: hover) {
     .botao:hover { transform: translateY(-2px); background: var(--oliva-escuro); box-shadow: 0 16px 32px rgba(44, 48, 18, .3); }
     .botao-claro:hover { background: var(--branco); color: var(--oliva); }
+    /* Passando o mouse, o pulso pausa e o botão sobe e cresce; o degradê termina de deslizar */
+    .botao-destaque:hover { animation-play-state: paused; background: linear-gradient(115deg, var(--oliva-escuro), var(--oliva) 52%, #4C5222); background-size: 220% 100%; background-position: 100% 0; border-color: rgba(245, 238, 221, .14); transform: translateY(-4px) scale(1.035); box-shadow: 0 20px 42px -14px rgba(44, 48, 18, .7); }
+    .botao-destaque.botao-claro:hover { background: var(--branco); border-color: var(--branco); color: var(--oliva); box-shadow: 0 20px 40px -14px rgba(0, 0, 0, .6); }
 }
 .link-seta { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--terracota-escuro); font-weight: 500; font-size: .95rem; text-decoration: none; border-bottom: 1px solid currentColor; }
 .link-seta::after { content: "→"; transition: transform .3s var(--ease); }
