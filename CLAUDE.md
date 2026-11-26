@@ -121,3 +121,5 @@ Ajuste é mudança dentro do que já foi combinado. Página nova, seção nova o
 - Comentários do código em português, explicando o porquê e onde mexer.
 - O README mantém a lista **Pendências de conteúdo** sempre atualizada.
 - Datas no horário de Brasília.
+- **Quando atualizar este arquivo, o README e o Drive:** só ao **final de um bloco de trabalho** (quando o Felipe disser que fechou, ou antes de ele limpar a conversa com `/clear`), todos de uma vez. Durante o bloco, só construa e corrija o site. Isso evita gastar tokens atualizando a cada alteração. Ao fechar o bloco: atualizar o `CLAUDE.md`, a seção "Para retomar o trabalho" do README e os documentos do Drive que mudaram; commitar, enviar e confirmar que não ficou nada sem commit.
+- **Ao retomar uma sessão:** leia o `CLAUDE.md` e a seção "Para retomar o trabalho" do README, veja o `git log` e o `git status`, resuma onde parou e espere a confirmação do Felipe antes de alterar ou publicar algo.
