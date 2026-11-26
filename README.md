@@ -11,7 +11,7 @@ Landing page da **empresa Correia**, de fisioterapia domiciliar para pessoas ido
 | Fase | Estado |
 |---|---|
 | 1. Preparação | Em andamento: pasta no Drive criada, repositório criado, kit adaptado. Faltam nome oficial, dados da empresa e domínio |
-| 2. Questionários | Os 4 da empresa ainda não foram respondidos |
+| 2. Questionários | Os 4 da empresa foram criados e o "Nosso levantamento" foi preenchido (dados públicos, normas e concorrentes, em 25 e 26/11/2026). Aguardam as respostas da Júlia |
 | 3. Roteiro | Depende das respostas |
 | 4 em diante | Não iniciadas |
 
@@ -74,13 +74,29 @@ O site em si (`index.html`, `styles.css`, scripts, política e 404) será constr
 - [PENDENTE] Papel do mockup de aplicações (imagens de banco; não usar no site sem conferir a licença)
 
 **Normas e fotos**
-- [PENDENTE] Conferir por escrito as normas do COFFITO e do CREFITO, inclusive para pessoa jurídica (registro da empresa, responsável técnico, o que a divulgação deve mostrar)
+- [PENDENTE] Registrar a empresa no CREFITO-17 e obter o número de registro (obrigatório; o CREFITO-17 não atende nem processa registros de 23 a 27/11/2026, por migração de sistema)
+- [PENDENTE] Confirmar por escrito com o CREFITO-17 os pontos da seção "Normas lidas" que ficaram em dúvida (lista ao fim dela)
 - [PENDENTE] Fotos e vídeos de atendimento e de eventos: autorização escrita de quem aparece e conferência da norma. Posts de alta, depoimentos e o destaque "Feedback" do Instagram não vão ao site sem isso
 - [PENDENTE] Respostas dos 4 questionários da empresa (Profissional, Persona, Mercado, Concorrentes)
 
 **Rastreamento (depois)**
 - [PENDENTE] ID do Google Tag Manager (gestor de tráfego) e conferência das tags no painel
 - [PENDENTE] Dados para o Google (`ld+json`, `canonical`, `og:*`, `sitemap.xml`): endereço ou área de atendimento, horários e domínio final
+
+## Normas lidas em fontes oficiais
+
+Leitura da agência em 25 e 26/11/2026, em coffito.gov.br, crefito17.org.br e planalto.gov.br. **Não é parecer jurídico**: serve de regra de trabalho até a confirmação por escrito com o CREFITO-17.
+
+- **Publicidade:** nome, profissão e número do CREFITO são obrigatórios (Código de Ética, Resolução COFFITO 424/2013, art. 48). Promessa de resultado infalível e sensacionalismo são vedados (arts. 15 e 46; Resolução 532/2021, art. 3º). Publicações de imagens, textos e áudios levam nome, CREFITO e data (Resolução 532/2021, art. 4º). Nenhuma norma nova de publicidade apareceu nas resoluções de 2024 a 2026.
+- **Preço:** o art. 40, I do Código veda afixar valor de honorários fora do local da assistência. A cartilha do CREFITO-16 (jan/2026; outro estado, não vinculante em Sergipe) lê o artigo de forma ampla. Padrão do projeto: sem preço, desconto, parcelamento nem "grátis".
+- **Empresa:** a empresa de fisioterapia precisa de registro no CREFITO, inclusive a que atende em domicílio (Lei 6.316/1975, art. 12; Resolução COFFITO 565/2022, art. 8º). O número de registro da empresa deve constar em anúncio e propaganda (Resolução COFFITO 37/1984, art. 28). O responsável técnico é fisioterapeuta inscrito na região (Resolução COFFITO 139/1992). A palavra "fisioterapia" só pode ser usada por empresa registrada (Resolução COFFITO 80/1987, art. 5º). Razão social e CNPJ no rodapé são boa prática (Decreto 7.962/2013; a aplicação ao site é leitura nossa).
+- **Título de especialista:** só com o título do COFFITO e o RQE (Resoluções COFFITO 627/2025, 630/2025 e 636/2025). A pós-graduação lato sensu é "especialização acadêmica" e não dá o título (Resolução 630/2025). A gerontologia é especialidade reconhecida (Resolução 476/2016): cuidado com a palavra.
+- **Imagem, depoimento e antes e depois:** só com autorização prévia em termo de consentimento do paciente ou do representante legal (Resolução 532/2021, arts. 1º, 2º e 5º; Código, arts. 10, V e 15, V). Vale também para avaliações do Google reproduzidas no site (leitura nossa).
+- **Equipe:** é vedado deixar o nome de alguém no quadro de um serviço em que não trabalha (Código, art. 25, VI).
+- **Agulhamento seco:** reconhecido como recurso fisioterapêutico pelo Acórdão COFFITO 481/2016; anulado em 2019 e, segundo o COFFITO, reafirmado pelo TRF1 em 28/04/2026 (acórdão não lido; pode caber recurso). Nunca chamar de "acupuntura".
+- **Planos de saúde (ANS):** desde 01/08/2022 não há limite de sessões de fisioterapia (RN 541/2022). A atenção domiciliar não é cobertura obrigatória, salvo contrato ou Rol (parecer técnico da ANS de 2024): o site não diz que "o plano cobre".
+
+**A confirmar por escrito com o CREFITO-17:** (1) como exibir o registro da empresa e se o nome do responsável técnico deve aparecer; (2) se o art. 29 da Resolução 37/1984 (logotipo e fotografia em anúncio) está em vigor; (3) como citar a pós-graduação lato sensu, concluída ou em andamento; (4) uso de "Dra."; (5) se avaliações e depoimentos pedem termo individual; (6) a situação do agulhamento seco depois da decisão do TRF1; (7) a situação do registro 408355-F (a consulta pública tem captcha).
 
 ## Autor
 
