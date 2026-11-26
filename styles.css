@@ -225,48 +225,60 @@ html:not(.js) .palavra { opacity: 1; transform: none; }
 .ponte-caixa { position: relative; z-index: 3; margin: clamp(48px, 6vw, 72px) auto calc(-1 * var(--ponte-sobra)); }
 #para-quem { padding-top: calc(clamp(68px, 9vw, 116px) + var(--ponte-sobra)); }
 .ponte { position: relative; isolation: isolate; padding: 40px 24px 58px; border-radius: var(--raio-grande); color: var(--creme);
-    background: radial-gradient(circle at 10% 0%, rgba(167, 111, 78, .26), transparent 44%), radial-gradient(circle at 100% 100%, rgba(144, 143, 104, .24), transparent 52%), linear-gradient(155deg, #474C22 0%, var(--oliva) 40%, var(--oliva-escuro) 100%);
-    box-shadow: 0 44px 80px -40px rgba(34, 37, 13, .7), 0 16px 32px -20px rgba(34, 37, 13, .45); }
+    /* Luz suave vinda do alto, um toque terracota no canto e o oliva da marca no fim (sem escurecer a borda de baixo) */
+    background: radial-gradient(ellipse 75% 85% at 50% -10%, rgba(140, 146, 78, .5), transparent 70%), radial-gradient(circle at 6% 0%, rgba(167, 111, 78, .3), transparent 38%), linear-gradient(180deg, #50562A 0%, #464C21 55%, var(--oliva) 100%);
+    /* Sombra curta e definida (nada de mancha escura espalhada no creme), com um filete de luz na borda de cima */
+    box-shadow: inset 0 1px 0 rgba(245, 238, 221, .16), 0 2px 4px rgba(34, 37, 13, .14), 0 20px 34px -24px rgba(34, 37, 13, .6); }
 /* Textura (o ladrilho da marca, quase invisível) e moldura fina "gravada" por dentro */
 .ponte::before { content: ""; position: absolute; z-index: -1; inset: 0; border-radius: inherit; background: url("assets/marca/ladrilho-creme.webp") 0 0 / 120px 120px repeat; opacity: .03; pointer-events: none; }
-.ponte::after { content: ""; position: absolute; inset: 10px; border-radius: calc(var(--raio-grande) - 10px); border: 1px solid rgba(245, 238, 221, .11); pointer-events: none; }
+.ponte::after { content: ""; position: absolute; inset: 10px; border-radius: calc(var(--raio-grande) - 10px); border: 1px solid rgba(217, 176, 143, .2); pointer-events: none; }
 /* O símbolo real da marca, grande e suave, saindo pelo canto */
-.ponte-simbolo { position: absolute; z-index: -1; inset: 0; border-radius: inherit; background: url("assets/marca/simbolo-creme.webp") right -90px top -70px / 300px auto no-repeat; opacity: .07; pointer-events: none; }
+.ponte-simbolo { position: absolute; z-index: -1; inset: 0; border-radius: inherit; background: url("assets/marca/simbolo-creme.webp") right -60px top -80px / 230px auto no-repeat; opacity: .06; pointer-events: none; }
 
 .ponte-itens { --g: 40px; position: relative; list-style: none; margin: 0 auto; padding: 0; max-width: 460px; display: grid; gap: var(--g); }
 .ponte-item { position: relative; display: grid; grid-template-columns: 56px 1fr; column-gap: 18px; align-items: center; min-height: 56px; }
 .ponte-item:nth-child(1) { --n: 0; } .ponte-item:nth-child(2) { --n: 1; } .ponte-item:nth-child(3) { --n: 2; } .ponte-item:nth-child(4) { --n: 3; }
-.ponte-icone { position: relative; z-index: 2; align-self: start; display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: #4A4F25; border: 1px solid rgba(217, 176, 143, .42); color: var(--terracota-clara); transition: transform .4s var(--ease), background-color .4s, color .4s; }
-.ponte-icone svg { width: 26px; height: 26px; }
-.ponte-texto { font-size: .86rem; line-height: 1.45; color: rgba(245, 238, 221, .84); }
-.ponte-texto strong { display: block; margin-bottom: 2px; font: 500 1.02rem/1.3 var(--fonte-texto); color: var(--branco); }
+.ponte-icone { position: relative; z-index: 2; align-self: start; display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: radial-gradient(circle at 50% 30%, #646A35, #484D22 75%); border: 1.5px solid rgba(217, 176, 143, .78); color: #EBCBAC; box-shadow: inset 0 0 0 4px rgba(245, 238, 221, .05), 0 6px 14px -8px rgba(0, 0, 0, .45); transition: transform .45s var(--ease), background .45s, color .45s, box-shadow .45s var(--ease), border-color .45s; }
+.ponte-icone svg { width: 27px; height: 27px; }
+.ponte-texto { font-size: .88rem; line-height: 1.45; color: rgba(245, 238, 221, .9); transition: color .4s; }
+.ponte-texto strong { display: block; margin-bottom: 3px; font: 600 1.05rem/1.3 var(--fonte-texto); color: #FFFCF4; letter-spacing: .005em; transition: color .4s; }
 
 /* Ligação com o destaque anterior: o fio vai do centro de um ícone ao centro do outro (passa por baixo deles) */
 .ponte-liga { position: absolute; z-index: 1; left: 28px; top: calc(-1 * var(--g) - 28px); width: 0; height: calc(var(--g) + 56px); pointer-events: none; }
-.ponte-fio { position: absolute; left: -1px; top: 0; bottom: 0; width: 2px; border-radius: 2px; background: linear-gradient(var(--terracota-clara), var(--salvia-clara)); opacity: .6; transform-origin: top; transition: transform .55s var(--ease); }
-.ponte-elo { position: absolute; left: -16px; top: 50%; width: 32px; height: 32px; margin-top: -16px; padding: 5px; border-radius: 50%; background: #393E18; border: 1px solid rgba(217, 176, 143, .5); overflow: visible; transition: transform .5s cubic-bezier(.34, 1.56, .64, 1), opacity .4s; }
-.ponte-elo ellipse { fill: none; stroke-width: 1.7; transform-box: fill-box; transform-origin: center; transition: transform .6s var(--ease); }
+.ponte-fio { position: absolute; left: -1px; top: 0; bottom: 0; width: 2px; border-radius: 2px; background: linear-gradient(var(--terracota-clara), rgba(245, 238, 221, .55)); opacity: .9; box-shadow: 0 0 8px rgba(217, 176, 143, .35); transform-origin: top; transition: transform .55s var(--ease), opacity .4s, box-shadow .4s; }
+.ponte-elo { position: absolute; left: -16px; top: 50%; width: 32px; height: 32px; margin-top: -16px; padding: 5px; border-radius: 50%; background: radial-gradient(circle at 50% 30%, #535929, #3B401A 80%); border: 1.5px solid rgba(217, 176, 143, .8); overflow: visible; transition: transform .5s cubic-bezier(.34, 1.56, .64, 1), opacity .4s; }
+.ponte-elo ellipse { fill: none; stroke-width: 1.9; transform-box: fill-box; transform-origin: center; transition: transform .6s var(--ease); }
 .ponte-elo .elo-esq { stroke: var(--creme); }
 .ponte-elo .elo-dir { stroke: var(--terracota-clara); }
 
 /* Palavras da marca: paradas e legíveis. Celular e tablet: em selos; computador: uma linha com elos entre elas */
-.ponte-palavras { position: relative; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 8px; margin: 34px 0 0; padding-top: 30px; font: italic 500 1.08rem/1.2 var(--fonte-titulo); color: var(--creme); text-align: center; }
-.ponte-palavras::before { content: ""; position: absolute; top: 0; left: 6%; right: 6%; height: 1px; background: linear-gradient(90deg, transparent, rgba(245, 238, 221, .3), transparent); }
+.ponte-palavras { position: relative; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 8px; margin: 34px 0 0; padding-top: 30px; font: italic 500 1.1rem/1.2 var(--fonte-titulo); color: #FBF4E6; text-align: center; }
+.ponte-palavras::before { content: ""; position: absolute; top: 0; left: 6%; right: 6%; height: 1px; background: linear-gradient(90deg, transparent, rgba(217, 176, 143, .5), transparent); }
 @media (max-width: 1023px) { .ponte-palavras { display: grid; grid-template-columns: repeat(2, auto); justify-content: center; } }
 @media (min-width: 600px) and (max-width: 1023px) { .ponte-palavras { grid-template-columns: repeat(3, auto); gap: 12px; } }
-.ponte-palavras span { display: inline-block; padding: 7px 14px; border: 1px solid rgba(245, 238, 221, .2); border-radius: 99px; background: rgba(245, 238, 221, .04); transition: opacity .6s var(--ease), transform .6s var(--ease), color .3s; }
-.ponte-palavras svg { display: none; width: 18px; height: 18px; color: var(--terracota-clara); opacity: .75; }
+.ponte-palavras span { position: relative; display: inline-block; padding: 7px 14px; border: 1px solid rgba(217, 176, 143, .38); border-radius: 99px; background: rgba(245, 238, 221, .06); transition: opacity .6s var(--ease), transform .6s var(--ease), color .3s; }
+.ponte-palavras svg { display: none; width: 18px; height: 18px; color: var(--terracota-clara); opacity: .9; }
 .ponte-palavras span:nth-of-type(1) { --k: 0; } .ponte-palavras span:nth-of-type(2) { --k: 1; } .ponte-palavras span:nth-of-type(3) { --k: 2; }
 .ponte-palavras span:nth-of-type(4) { --k: 3; } .ponte-palavras span:nth-of-type(5) { --k: 4; } .ponte-palavras span:nth-of-type(6) { --k: 5; }
 
 /* Selo que convida a seguir: metade dentro, metade fora da peça */
-.ponte-seguir { position: absolute; z-index: 2; left: 50%; bottom: -27px; width: 54px; height: 54px; margin-left: -27px; display: grid; place-items: center; border-radius: 50%; background: var(--creme); color: var(--oliva); border: 1px solid var(--linha); box-shadow: 0 14px 26px -12px rgba(34, 37, 13, .5); transition: background-color .3s, color .3s, transform .3s var(--ease), opacity .6s var(--ease); }
+.ponte-seguir { position: absolute; z-index: 2; left: 50%; bottom: -27px; width: 54px; height: 54px; margin-left: -27px; display: grid; place-items: center; border-radius: 50%; background: var(--creme); color: var(--oliva); border: 1.5px solid rgba(167, 111, 78, .45); box-shadow: 0 2px 4px rgba(34, 37, 13, .12), 0 10px 18px -10px rgba(34, 37, 13, .5); transition: background-color .3s, color .3s, transform .3s var(--ease), opacity .6s var(--ease); }
 .ponte-seguir svg { width: 20px; height: 20px; transform: rotate(90deg); animation: ponteDesce 2.6s ease-in-out infinite; }
 @keyframes ponteDesce { 0%, 100% { transform: rotate(90deg) translateX(-2px); } 50% { transform: rotate(90deg) translateX(4px); } }
 @media (hover: hover) {
-    .ponte-seguir:hover { background: var(--oliva); color: var(--creme); }
-    .ponte-item:hover .ponte-icone { transform: translateY(-3px) rotate(-6deg); background: var(--terracota-fundo); color: var(--creme); }
-    .ponte-palavras span:hover { color: var(--terracota-clara); }
+    .ponte-seguir:hover { background: var(--oliva); color: var(--creme); transform: scale(1.07); }
+    /* Destaque: o ícone sobe e gira, ganha anel de luz; o fio até ele acende e os dois anéis do selo se encaixam */
+    .ponte-item:hover .ponte-icone { transform: translateY(-4px) rotate(-6deg); background: radial-gradient(circle at 50% 30%, #B57E5C, var(--terracota-fundo) 75%); border-color: #F0D3B6; color: #FFF8EC; box-shadow: 0 0 0 7px rgba(217, 176, 143, .16), 0 0 22px rgba(217, 176, 143, .35), 0 12px 22px -10px rgba(0, 0, 0, .5); }
+    .ponte-item:hover .ponte-texto { color: var(--creme); }
+    .ponte-item:hover .ponte-texto strong { color: #F3D7BC; }
+    .ponte-item:hover .ponte-fio { opacity: 1; background: #E9C6A5; box-shadow: 0 0 12px rgba(233, 198, 165, .75); }
+    .ponte-item:hover .ponte-elo { transform: scale(1.14) rotate(-12deg); }
+    .ponte-item:hover .elo-esq { transform: translateX(1.4px); }
+    .ponte-item:hover .elo-dir { transform: translateX(-1.4px); }
+    /* Palavra: um fio terracota se desenha embaixo dela */
+    .ponte-palavras span::after { content: ""; position: absolute; left: 14px; right: 14px; bottom: 3px; height: 1.5px; border-radius: 2px; background: var(--terracota-clara); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
+    .ponte-palavras span:hover { color: #F3D7BC; }
+    .ponte-palavras span:hover::after { transform: scaleX(1); }
 }
 
 /* Entrada (só com JavaScript): o estado inicial fica escondido até a peça ganhar .visivel */
@@ -290,8 +302,8 @@ html:not(.js) .palavra { opacity: 1; transform: none; }
 .js .ponte.visivel .ponte-palavras svg { transition-delay: 1.5s; }
 .js .ponte.visivel .ponte-seguir { transition-delay: 2s; }
 /* Cada ícone "acende" com um anel quando o fio chega nele */
-.ponte.visivel .ponte-icone { animation: ponteAcende 1s var(--ease) both; animation-delay: calc(var(--n) * 280ms + 180ms); }
-@keyframes ponteAcende { 0% { box-shadow: 0 0 0 0 rgba(217, 176, 143, .55); } 100% { box-shadow: 0 0 0 16px rgba(217, 176, 143, 0); } }
+.ponte.visivel .ponte-icone { animation: ponteAcende 1s var(--ease) backwards; animation-delay: calc(var(--n) * 280ms + 180ms); }
+@keyframes ponteAcende { 0% { box-shadow: 0 0 0 0 rgba(217, 176, 143, .6); } 100% { box-shadow: 0 0 0 18px rgba(217, 176, 143, 0); } }
 
 /* Tablet: duas colunas, cada uma com um par ligado (1–2 e 3–4); o 3º não liga ao 2º, que está na outra coluna */
 @media (min-width: 600px) and (max-width: 1023px) {
@@ -303,17 +315,19 @@ html:not(.js) .palavra { opacity: 1; transform: none; }
 @media (min-width: 1024px) {
     :root { --ponte-sobra: 72px; }
     .ponte { padding: 54px 56px 70px; }
-    .ponte-simbolo { background-size: 380px auto; background-position: right -110px top -100px; }
+    .ponte-simbolo { background-size: 260px auto; background-position: right -60px top -110px; }
     .ponte-itens { --g: 28px; max-width: none; grid-template-columns: repeat(4, 1fr); }
     .ponte-item { grid-template-columns: 1fr; justify-items: center; align-items: start; align-content: start; row-gap: 18px; text-align: center; }
-    .ponte-icone { align-self: auto; width: 60px; height: 60px; }
-    .ponte-texto { max-width: 230px; }
-    .ponte-liga { left: calc(-50% - var(--g)); top: 30px; width: calc(100% + var(--g)); height: 0; }
-    .ponte-fio { left: 0; right: 0; top: -1px; bottom: auto; width: auto; height: 2px; background: linear-gradient(90deg, var(--terracota-clara), var(--salvia-clara)); transform-origin: left; }
+    .ponte-icone { align-self: auto; width: 64px; height: 64px; }
+    .ponte-icone svg { width: 29px; height: 29px; }
+    .ponte-texto { max-width: 268px; }
+    .ponte-liga { left: calc(-50% - var(--g)); top: 32px; width: calc(100% + var(--g)); height: 0; }
+    .ponte-fio { left: 0; right: 0; top: -1px; bottom: auto; width: auto; height: 2px; background: linear-gradient(90deg, var(--terracota-clara), rgba(245, 238, 221, .55)); transform-origin: left; }
     .ponte-elo { left: 50%; top: -16px; margin: 0 0 0 -16px; }
     .js .ponte:not(.visivel) .ponte-fio { transform: scaleX(0); }
     .ponte-palavras { gap: 10px 22px; margin-top: 40px; padding-top: 34px; font-size: clamp(1.2rem, 1.7vw, 1.45rem); }
-    .ponte-palavras span { padding: 0; border: 0; background: none; }
+    .ponte-palavras span { padding: 2px 0 6px; border: 0; background: none; }
+    .ponte-palavras span::after { left: 0; right: 0; bottom: 0; }
     .ponte-palavras svg { display: block; }
 }
 
