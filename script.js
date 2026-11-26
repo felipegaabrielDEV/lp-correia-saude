@@ -179,7 +179,7 @@
     }
 
     /* ---------- Revelar ao rolar (e desenhar os elos da chamada final) ---------- */
-    const revelar = document.querySelectorAll(".revelar, .chamada");
+    const revelar = document.querySelectorAll(".revelar, .chamada, .ponte");
     if (reduzMovimento || !("IntersectionObserver" in window)) {
         revelar.forEach(el => el.classList.add("visivel"));
     } else {

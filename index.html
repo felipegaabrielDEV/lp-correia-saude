@@ -64,7 +64,7 @@
     <!-- Fontes equivalentes, até chegarem os nomes e arquivos das fontes da marca (PENDENTE). -->
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
     <link rel="preload" as="image" href="assets/fundadora/julia-topo-960.webp" imagesrcset="assets/fundadora/julia-topo-560.webp 560w, assets/fundadora/julia-topo-960.webp 960w" imagesizes="(min-width: 1024px) 460px, 86vw">
-    <link rel="stylesheet" href="styles.css?v=20261126-3">
+    <link rel="stylesheet" href="styles.css?v=20261126-6">
 </head>
 <body>
 <!-- GTM (noscript): PENDENTE o ID do gestor de tráfego. Quando existir, troque por:
@@ -175,21 +175,26 @@
             </figure>
         </div>
 
-        <ul class="conteiner faixa-beneficios">
-            <li><svg aria-hidden="true"><use href="#i-casa"/></svg><span><strong>Na sua casa</strong>Atendimento domiciliar</span></li>
-            <li><svg aria-hidden="true"><use href="#i-equipe"/></svg><span><strong>Equipe de 5 fisioterapeutas</strong>Cada profissional com a sua área de atuação</span></li>
-            <li><svg aria-hidden="true"><use href="#i-maos"/></svg><span><strong>Foco na pessoa idosa</strong>Ortopedia, neurologia e prevenção</span></li>
-            <li><svg aria-hidden="true"><use href="#i-familia"/></svg><span><strong>De família para família</strong>A família faz parte do cuidado</span></li>
-        </ul>
-    </section>
-
-    <!-- Letreiro: as palavras da paleta da marca (Identidade Visual › Paleta de cores) -->
-    <div class="letreiro" aria-hidden="true">
-        <div class="letreiro-trilho">
-            <span>Legado</span><svg><use href="#i-elo"/></svg><span>Acolhimento</span><svg><use href="#i-elo"/></svg><span>Família</span><svg><use href="#i-elo"/></svg><span>Segurança</span><svg><use href="#i-elo"/></svg><span>Escuta</span><svg><use href="#i-elo"/></svg><span>Permanência</span><svg><use href="#i-elo"/></svg>
-            <span>Legado</span><svg><use href="#i-elo"/></svg><span>Acolhimento</span><svg><use href="#i-elo"/></svg><span>Família</span><svg><use href="#i-elo"/></svg><span>Segurança</span><svg><use href="#i-elo"/></svg><span>Escuta</span><svg><use href="#i-elo"/></svg><span>Permanência</span><svg><use href="#i-elo"/></svg>
+        <!-- ============ PONTE: a peça que liga o topo ao resto da página ============
+             Os 4 destaques ficam ligados por um fio com elos (o gesto do símbolo da marca), que se desenha quando a peça
+             entra na tela; embaixo, as palavras da paleta da marca, paradas e legíveis. A peça "flutua" sobre a divisa
+             entre o topo e "Para quem é" (a sobra é a variável --ponte-sobra no styles.css).
+             Para mudar um destaque, mexa só no texto do <li>; o fio e os elos são decorativos (aria-hidden). -->
+        <div class="conteiner ponte-caixa">
+            <div class="ponte">
+                <span class="ponte-simbolo" aria-hidden="true"></span>
+                <ul class="ponte-itens">
+                    <li class="ponte-item"><span class="ponte-icone"><svg aria-hidden="true"><use href="#i-casa"/></svg></span><span class="ponte-texto"><strong>Na sua casa</strong>Atendimento domiciliar</span></li>
+                    <li class="ponte-item"><span class="ponte-liga" aria-hidden="true"><span class="ponte-fio"></span><svg class="ponte-elo" viewBox="0 0 24 24"><ellipse class="elo-esq" cx="8.6" cy="12" rx="5.6" ry="7"/><ellipse class="elo-dir" cx="15.4" cy="12" rx="5.6" ry="7"/></svg></span><span class="ponte-icone"><svg aria-hidden="true"><use href="#i-equipe"/></svg></span><span class="ponte-texto"><strong>Equipe de 5 fisioterapeutas</strong>Cada profissional com a sua área de atuação</span></li>
+                    <li class="ponte-item"><span class="ponte-liga" aria-hidden="true"><span class="ponte-fio"></span><svg class="ponte-elo" viewBox="0 0 24 24"><ellipse class="elo-esq" cx="8.6" cy="12" rx="5.6" ry="7"/><ellipse class="elo-dir" cx="15.4" cy="12" rx="5.6" ry="7"/></svg></span><span class="ponte-icone"><svg aria-hidden="true"><use href="#i-maos"/></svg></span><span class="ponte-texto"><strong>Foco na pessoa idosa</strong>Ortopedia, neurologia e prevenção</span></li>
+                    <li class="ponte-item"><span class="ponte-liga" aria-hidden="true"><span class="ponte-fio"></span><svg class="ponte-elo" viewBox="0 0 24 24"><ellipse class="elo-esq" cx="8.6" cy="12" rx="5.6" ry="7"/><ellipse class="elo-dir" cx="15.4" cy="12" rx="5.6" ry="7"/></svg></span><span class="ponte-icone"><svg aria-hidden="true"><use href="#i-familia"/></svg></span><span class="ponte-texto"><strong>De família para família</strong>A família faz parte do cuidado</span></li>
+                </ul>
+                <!-- Palavras da paleta da marca (Identidade Visual › Paleta de cores) -->
+                <p class="ponte-palavras"><span>Legado</span><svg aria-hidden="true"><use href="#i-elo"/></svg><span>Acolhimento</span><svg aria-hidden="true"><use href="#i-elo"/></svg><span>Família</span><svg aria-hidden="true"><use href="#i-elo"/></svg><span>Segurança</span><svg aria-hidden="true"><use href="#i-elo"/></svg><span>Escuta</span><svg aria-hidden="true"><use href="#i-elo"/></svg><span>Permanência</span></p>
+                <a class="ponte-seguir" href="#para-quem" aria-label="Seguir para: Para quem é"><svg aria-hidden="true"><use href="#i-seta"/></svg></a>
+            </div>
         </div>
-    </div>
+    </section>
 
     <!-- ============ PARA QUEM É ============ -->
     <section class="secao" id="para-quem" aria-labelledby="para-quem-titulo">
@@ -693,7 +698,7 @@
      do WhatsApp e window.correiaWhats; lead-form.js abre o formulário nos botões do WhatsApp. -->
 <script src="eventos.js?v=20261126-1" defer></script>
 <script src="consent.js?v=20261126-1" defer></script>
-<script src="script.js?v=20261126-3" defer></script>
+<script src="script.js?v=20261126-6" defer></script>
 <script src="lead-form.js?v=20261126-1" defer></script>
 </body>
 </html>
