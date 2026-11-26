@@ -189,6 +189,18 @@
         revelar.forEach(el => obs.observe(el));
     }
 
+    /* ---------- Ponte: depois da entrada (cerca de 2,5 s), a peça fica .pronta ----------
+       Os atrasos escalonados da entrada (styles.css, ".ponte.visivel:not(.pronta)") deixam de valer,
+       e o hover responde na hora em qualquer destaque. */
+    const ponte = document.querySelector(".ponte");
+    if (ponte) {
+        const marcarPronta = () => setTimeout(() => ponte.classList.add("pronta"), reduzMovimento ? 0 : 2600);
+        if (ponte.classList.contains("visivel")) marcarPronta();
+        else new MutationObserver((mudancas, obs) => {
+            if (ponte.classList.contains("visivel")) { obs.disconnect(); marcarPronta(); }
+        }).observe(ponte, { attributes: true, attributeFilter: ["class"] });
+    }
+
     /* ---------- Botões de chamada: a animação só roda enquanto o botão está na tela ----------
        O CSS pausa tudo o que tem a classe .parada (ver .botao-destaque no styles.css). */
     const botoesDestaque = document.querySelectorAll(".botao-destaque");
