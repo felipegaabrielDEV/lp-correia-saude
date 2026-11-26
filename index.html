@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <!-- Consentimento (LGPD): tudo começa NEGADO e só muda quando a pessoa escolhe no aviso de cookies.
+         Precisa vir ANTES do Google Tag Manager. Se a pessoa já escolheu numa visita anterior, a escolha salva
+         (localStorage "correia_consent") é reaplicada aqui, antes de qualquer tag rodar. O aviso fica no consent.js. -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag("consent", "default", {
+            ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied",
+            analytics_storage: "denied", wait_for_update: 500
+        });
+        gtag("set", "ads_data_redaction", true);
+        (function () {
+            try {
+                var c = JSON.parse(localStorage.getItem("correia_consent") || "null");
+                if (c && c.v === 1) {
+                    gtag("consent", "update", {
+                        analytics_storage: c.a ? "granted" : "denied",
+                        ad_storage: c.m ? "granted" : "denied",
+                        ad_user_data: c.m ? "granted" : "denied",
+                        ad_personalization: c.m ? "granted" : "denied"
+                    });
+                    dataLayer.push({ event: "consent_update", consent_analytics: !!c.a, consent_marketing: !!c.m });
+                }
+            } catch (e) { }
+        })();
+    </script>
+    <!-- Google Tag Manager (contêiner do gestor de tráfego). GA4, Meta Pixel e Microsoft Clarity são configurados no
+         painel do GTM, nunca direto no código, para não duplicar.
+         PENDENTE: o gestor de tráfego envia o ID (GTM-XXXXXXX). Enquanto GTM_ID estiver vazio, nada é carregado.
+         Quando preencher, preencha também o ID no <noscript> logo depois do <body>. -->
+    <script>(function (w, d, s, l, i) {
+            if (!i) return;
+            w[l] = w[l] || []; w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != "dataLayer" ? "&l=" + l : ""; j.async = true; j.src =
+                    "https://www.googletagmanager.com/gtm.js?id=" + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "" /* GTM_ID */);</script>
+    <!-- Fim do Google Tag Manager -->
+
+    <!-- PRÉVIA: enquanto não houver aprovação final, a página fica fora dos buscadores. -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- PENDENTE: nome oficial da empresa. "Correia" é a parte comum às quatro versões em uso. -->
+    <title>Correia | Fisioterapia domiciliar para idosos em Aracaju</title>
+    <meta name="description" content="Fisioterapia em casa para pessoas idosas em Aracaju/SE, com uma equipe de fisioterapeutas. Fundada por Júlia Gabriely, Fisioterapeuta (CREFITO-17 408355-F).">
+    <meta name="theme-color" content="#3E431B">
+
+    <!-- Contato: o script lê daqui. WhatsApp só com dígitos (DDI + DDD + número).
+         PENDENTE: confirmar com a Júlia qual número vale para a empresa. -->
+    <meta name="whatsapp-number" content="5579998702192">
+    <meta name="instagram-url" content="https://www.instagram.com/correiasaude_/">
+
+    <!-- Dados para o Google (ld+json, canonical, og:*): entram na prévia 2, com nome oficial, CNPJ, região e domínio. -->
+
+    <link rel="icon" href="assets/marca/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/marca/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fontes equivalentes, até chegarem os nomes e arquivos das fontes da marca (PENDENTE). -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="assets/fundadora/julia-topo-960.webp" imagesrcset="assets/fundadora/julia-topo-560.webp 560w, assets/fundadora/julia-topo-960.webp 960w" imagesizes="(min-width: 1024px) 460px, 86vw">
+    <link rel="stylesheet" href="styles.css?v=20261126-1">
+</head>
+<body>
+<!-- GTM (noscript): PENDENTE o ID do gestor de tráfego. Quando existir, troque por:
+     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+
+<!-- Ícones (um único sprite, sem bibliotecas externas). -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.9-1.4A10 10 0 1 0 12 2Zm5.7 14.2c-.2.7-1.4 1.3-2 1.4-.5 0-1.1.1-1.8-.2-3.8-1.4-6.3-5.3-6.5-5.6-.1-.2-1.2-1.6-1.2-3 0-1.5.8-2.2 1-2.5.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .7.5l.9 2.2c.1.2.1.3 0 .5l-.7 1c-.1.2-.3.3-.1.6.2.3.8 1.2 1.6 2 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l1.1-1.3c.2-.3.4-.3.7-.2l2.2 1.1c.3.2.5.2.6.4.1.1.1.7-.2 1.4Z"/></symbol>
+    <symbol id="i-casa" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 4l8.5 6.5"/><path d="M6 9v10.5h12V9"/><path d="M10 19.5v-5h4v5"/></g></symbol>
+    <symbol id="i-cartao" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3 10h18M7 15h4"/></g></symbol>
+    <symbol id="i-maos" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.9c0 5.4-7.5 10-7.5 10Z"/></g></symbol>
+    <symbol id="i-plano" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 4.5V3h6v1.5"/><path d="m8.4 10.2 1 1 2-2M13.6 10.4h2.2M8.4 15.2l1 1 2-2M13.6 15.4h2.2"/></g></symbol>
+    <symbol id="i-passos" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.8" r="1.8"/><path d="M12 7.5v6.5M12 9.5l-3.5 2.5M12 9.5l3.5 2.5M12 14l-2.5 6M12 14l2.5 6"/></g></symbol>
+    <symbol id="i-equilibrio" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M5 20h14M6 8h12"/><path d="m6 8-2.5 5h5L6 8ZM18 8l-2.5 5h5L18 8Z"/></g></symbol>
+    <symbol id="i-dor" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5"/><circle cx="12" cy="16" r=".6" fill="currentColor"/></g></symbol>
+    <symbol id="i-cama" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V7M3 14h18v4M21 14v-2.5a2.5 2.5 0 0 0-2.5-2.5H11v5"/><circle cx="7" cy="11" r="1.8"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="i-insta" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></g></symbol>
+    <symbol id="i-capelo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9 12 4.5 21.5 9 12 13.5 2.5 9Z"/><path d="M6.5 11v4.5c0 1.4 2.5 3 5.5 3s5.5-1.6 5.5-3V11M21.5 9v5"/></g></symbol>
+    <symbol id="i-selo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9.5" r="5.5"/><path d="m9 14.5-1.5 6 4.5-2 4.5 2-1.5-6"/></g></symbol>
+    <symbol id="i-mais" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-seta" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <!-- Elo: dois anéis que se ligam (o símbolo da marca, em versão de ícone) -->
+    <symbol id="i-elo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="8.6" cy="12" rx="5.6" ry="7"/><ellipse cx="15.4" cy="12" rx="5.6" ry="7"/></g></symbol>
+    <symbol id="i-equipe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 19.5c0-3.2 2.5-5.5 5.5-5.5s5.5 2.3 5.5 5.5"/><circle cx="16.5" cy="9" r="2.4"/><path d="M15.5 14.2c3 .1 5 2.2 5 5.3"/></g></symbol>
+    <symbol id="i-neuro" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5c-1-1.6-4.2-1.8-5.3.4-2.2.1-3.3 2.6-2 4.3-1.3 1.5-.6 4 1.3 4.4.2 2.3 2.8 3.4 4.6 2.1.4.5.9.8 1.4.8"/><path d="M12 5.5c1-1.6 4.2-1.8 5.3.4 2.2.1 3.3 2.6 2 4.3 1.3 1.5.6 4-1.3 4.4-.2 2.3-2.8 3.4-4.6 2.1-.4.5-.9.8-1.4.8"/><path d="M12 5.5v12M9 10.5c1 0 2 .6 3 1.5M15 10.5c-1 0-2 .6-3 1.5"/></g></symbol>
+    <symbol id="i-articulacao" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3.5v6.2a3 3 0 0 0 6 0V3.5"/><path d="M9 20.5v-4.2a3 3 0 0 1 6 0v4.2"/><path d="M7 12.8h10"/></g></symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2 5 6v5.4c0 4.4 3 7.9 7 9.4 4-1.5 7-5 7-9.4V6l-7-2.8Z"/><path d="m9 12 2.2 2.2L15.5 10"/></g></symbol>
+    <symbol id="i-relogio" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></g></symbol>
+    <symbol id="i-familia" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="6.5" r="2.3"/><circle cx="16.5" cy="6.5" r="2.3"/><circle cx="12" cy="12.5" r="1.8"/><path d="M3.5 17.5c0-3 1.8-5.5 4-5.5M20.5 17.5c0-3-1.8-5.5-4-5.5M9 20c0-2.3 1.3-4 3-4s3 1.7 3 4"/></g></symbol>
+</svg>
+
+<div class="progresso" aria-hidden="true"><span></span></div>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- Faixa da prévia: some no lançamento. O botão esconde os marcadores para ver o visual limpo. -->
+<div class="previa-faixa" role="note">
+    <span><strong>Prévia 1</strong> · estrutura e visual. Textos marcados como <em>rascunho</em> e itens <em>pendentes</em> dependem das respostas da Júlia aos questionários.</span>
+    <button type="button" class="previa-alternar" aria-pressed="true"><span>ocultar marcadores</span></button>
+</div>
+
+<header class="topo" id="topo">
+    <div class="topo-dentro">
+        <a class="marca" href="#inicio" aria-label="Correia, Longevidade e Saúde: voltar ao início">
+            <img src="assets/marca/logo-horizontal.webp" width="640" height="142" alt="" class="marca-logo">
+        </a>
+        <nav class="menu" aria-label="Seções do site">
+            <a href="#para-quem">Para quem é</a>
+            <a href="#como-funciona">Como funciona</a>
+            <a href="#cuidados">Cuidados</a>
+            <a href="#quem-somos">Quem somos</a>
+            <a href="#duvidas">Dúvidas</a>
+        </nav>
+        <a class="botao botao-pequeno so-desktop" href="#" data-wa data-wa-origin="menu"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Agendar avaliação</a>
+        <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-movel" aria-label="Abrir menu"><span></span><span></span></button>
+    </div>
+    <div class="menu-movel" id="menu-movel" hidden>
+        <nav aria-label="Seções do site (celular)">
+            <a href="#para-quem">Para quem é</a>
+            <a href="#como-funciona">Como funciona</a>
+            <a href="#cuidados">Cuidados</a>
+            <a href="#quem-somos">Quem somos</a>
+            <a href="#duvidas">Dúvidas</a>
+        </nav>
+        <a class="botao" href="#" data-wa data-wa-origin="menu_mobile"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Agendar avaliação pelo WhatsApp</a>
+    </div>
+</header>
+
+<main id="conteudo">
+
+    <!-- ============ TOPO ============ -->
+    <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+        <span class="hero-ladrilho" aria-hidden="true"></span>
+        <div class="conteiner hero-grade">
+            <div class="hero-texto">
+                <p class="sobretitulo">Fisioterapia domiciliar para idosos · Aracaju/SE</p>
+                <h1 id="hero-titulo" data-palavras>Cuidado de família para família, <em>na casa de quem você ama</em></h1>
+                <p class="lead">Uma equipe de fisioterapeutas vai até a casa da pessoa idosa, avalia com calma e acompanha cada etapa, <span class="realce">com a família por perto</span>.</p>
+                <p class="marcador" data-nota="Título e texto do topo: rascunho, a partir do briefing de marca. A Júlia confirma no questionário Profissional">rascunho</p>
+                <div class="acoes">
+                    <a class="botao botao-destaque" href="#" data-wa data-wa-origin="hero"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Agendar avaliação pelo WhatsApp</a>
+                    <a class="link-seta" href="#como-funciona">Ver como funciona</a>
+                </div>
+                <ul class="chips" aria-label="Destaques">
+                    <li><svg aria-hidden="true"><use href="#i-casa"/></svg>Em casa</li>
+                    <li><svg aria-hidden="true"><use href="#i-equipe"/></svg>Equipe de fisioterapeutas</li>
+                    <li><svg aria-hidden="true"><use href="#i-maos"/></svg>Foco na pessoa idosa</li>
+                </ul>
+            </div>
+
+            <figure class="hero-foto">
+                <img class="hero-simbolo" src="assets/marca/simbolo-salvia.webp" width="417" height="451" alt="" aria-hidden="true">
+                <!-- Elos: dois anéis que se desenham em volta da foto (o mesmo gesto do símbolo da marca) -->
+                <svg class="hero-elos" viewBox="0 0 400 520" aria-hidden="true" focusable="false">
+                    <ellipse class="elo-a" cx="170" cy="270" rx="168" ry="238" pathLength="1"/>
+                    <ellipse class="elo-b" cx="232" cy="262" rx="164" ry="236" pathLength="1"/>
+                </svg>
+                <div class="hero-moldura">
+                    <img src="assets/fundadora/julia-topo-960.webp" srcset="assets/fundadora/julia-topo-560.webp 560w, assets/fundadora/julia-topo-960.webp 960w" sizes="(min-width: 1024px) 460px, 86vw" width="960" height="1200" alt="Júlia Gabriely, fundadora da Correia, sorrindo, de blazer terracota." fetchpriority="high">
+                </div>
+                <figcaption class="flutua cartao-credencial">
+                    <img src="assets/marca/simbolo-oliva.webp" width="417" height="451" alt="">
+                    <span><strong>Júlia Gabriely</strong>Fundadora · Fisioterapeuta<br>CREFITO-17 408355-F</span>
+                </figcaption>
+                <div class="flutua flutua-2 cartao-selo"><svg aria-hidden="true"><use href="#i-casa"/></svg><span><strong>Na sua casa</strong>em Aracaju/SE</span></div>
+            </figure>
+        </div>
+
+        <ul class="conteiner faixa-beneficios">
+            <li><svg aria-hidden="true"><use href="#i-casa"/></svg><span><strong>Na sua casa</strong>Atendimento domiciliar</span></li>
+            <li><svg aria-hidden="true"><use href="#i-equipe"/></svg><span><strong>Equipe de 5 fisioterapeutas</strong>Cada profissional com a sua área de atuação</span></li>
+            <li><svg aria-hidden="true"><use href="#i-maos"/></svg><span><strong>Foco na pessoa idosa</strong>Ortopedia, neurologia e prevenção</span></li>
+            <li><svg aria-hidden="true"><use href="#i-familia"/></svg><span><strong>De família para família</strong>A família faz parte do cuidado</span></li>
+        </ul>
+    </section>
+
+    <!-- Letreiro: as palavras da paleta da marca (Identidade Visual › Paleta de cores) -->
+    <div class="letreiro" aria-hidden="true">
+        <div class="letreiro-trilho">
+            <span>Legado</span><svg><use href="#i-elo"/></svg><span>Acolhimento</span><svg><use href="#i-elo"/></svg><span>Família</span><svg><use href="#i-elo"/></svg><span>Segurança</span><svg><use href="#i-elo"/></svg><span>Escuta</span><svg><use href="#i-elo"/></svg><span>Permanência</span><svg><use href="#i-elo"/></svg>
+            <span>Legado</span><svg><use href="#i-elo"/></svg><span>Acolhimento</span><svg><use href="#i-elo"/></svg><span>Família</span><svg><use href="#i-elo"/></svg><span>Segurança</span><svg><use href="#i-elo"/></svg><span>Escuta</span><svg><use href="#i-elo"/></svg><span>Permanência</span><svg><use href="#i-elo"/></svg>
+        </div>
+    </div>
+
+    <!-- ============ PARA QUEM É ============ -->
+    <section class="secao" id="para-quem" aria-labelledby="para-quem-titulo">
+        <div class="conteiner">
+            <header class="cabeca centro">
+                <p class="sobretitulo">Para quem é</p>
+                <h2 id="para-quem-titulo">Quando a família percebe que <em>está na hora</em></h2>
+                <p>Alguns sinais aparecem aos poucos, na rotina da casa. Se você reconhece algum deles em quem você ama, vale conversar com a equipe.</p>
+                <p class="marcador" data-nota="Sinais: rascunho, a partir dos casos citados pela Júlia (ortopédicos, neurológicos e de prevenção). Confirmar na Persona, perguntas 11 e 14">rascunho</p>
+            </header>
+            <ul class="sinais">
+                <li class="sinal revelar" style="--i:0">
+                    <span class="sinal-icone"><svg aria-hidden="true"><use href="#i-equilibrio"/></svg></span>
+                    <h3>Quedas ou medo de cair</h3>
+                    <p>Já caiu, ficou inseguro para andar pela casa ou evita sair do lugar por receio.</p>
+                </li>
+                <li class="sinal revelar" style="--i:1">
+                    <span class="sinal-icone"><svg aria-hidden="true"><use href="#i-passos"/></svg></span>
+                    <h3>Menos força e mobilidade</h3>
+                    <p>Levantar da cadeira, subir um degrau ou tomar banho ficou mais difícil do que antes.</p>
+                </li>
+                <li class="sinal revelar" style="--i:2">
+                    <span class="sinal-icone"><svg aria-hidden="true"><use href="#i-dor"/></svg></span>
+                    <h3>Dor que atrapalha a rotina</h3>
+                    <p>Dor nas costas, nos joelhos ou nos ombros que tira a vontade de se mexer.</p>
+                </li>
+                <li class="sinal revelar" style="--i:0">
+                    <span class="sinal-icone"><svg aria-hidden="true"><use href="#i-cama"/></svg></span>
+                    <h3>Volta para casa</h3>
+                    <p>Depois de uma internação ou cirurgia, a família quer apoio para retomar os movimentos, junto com a orientação médica.</p>
+                </li>
+                <li class="sinal revelar" style="--i:1">
+                    <span class="sinal-icone"><svg aria-hidden="true"><use href="#i-neuro"/></svg></span>
+                    <h3>Condição neurológica ou ortopédica</h3>
+                    <p>Uma condição que pede acompanhamento contínuo, sem precisar sair de casa para cada atendimento.</p>
+                </li>
+                <li class="sinal sinal-chamada revelar" style="--i:2">
+                    <h3>Reconheceu algum sinal?</h3>
+                    <p>Conte o que está acontecendo. A equipe explica como funciona o atendimento em casa.</p>
+                    <a class="botao botao-claro botao-destaque" href="#" data-wa data-wa-origin="para_quem"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Conversar pelo WhatsApp</a>
+                </li>
+            </ul>
+            <p class="nota-centro">A fisioterapia não substitui a avaliação médica. Em caso de queda, dor forte ou mudança repentina, procure o médico; quando for preciso, a equipe orienta essa avaliação.</p>
+        </div>
+    </section>
+
+    <!-- ============ EM NÚMEROS (dados públicos, com fonte) ============ -->
+    <section class="secao secao-numeros" id="numeros" aria-labelledby="numeros-titulo">
+        <div class="conteiner">
+            <header class="cabeca centro">
+                <p class="sobretitulo">Em números</p>
+                <h2 id="numeros-titulo">Envelhecer em casa é a realidade de <em>muitas famílias</em> em Aracaju</h2>
+            </header>
+            <ul class="numeros-grade">
+                <li class="numero revelar" style="--i:0">
+                    <svg aria-hidden="true"><use href="#i-pin"/></svg>
+                    <span class="numero-valor" data-contar="90134">90.134</span>
+                    <span class="numero-texto">pessoas com 60 anos ou mais moram em Aracaju</span>
+                    <small>IBGE, Censo 2022</small>
+                </li>
+                <li class="numero revelar" style="--i:1">
+                    <svg aria-hidden="true"><use href="#i-maos"/></svg>
+                    <span class="numero-valor" data-contar="12873">12.873</span>
+                    <span class="numero-texto">delas têm 80 anos ou mais</span>
+                    <small>IBGE, Censo 2022</small>
+                </li>
+                <li class="numero revelar" style="--i:2">
+                    <svg aria-hidden="true"><use href="#i-casa"/></svg>
+                    <span class="numero-valor" data-contar="14094">14.094</span>
+                    <span class="numero-texto">casas em Aracaju têm uma só moradora ou morador, com 60 anos ou mais</span>
+                    <small>IBGE, Censo 2022</small>
+                </li>
+                <li class="numero revelar" style="--i:3">
+                    <svg aria-hidden="true"><use href="#i-equilibrio"/></svg>
+                    <span class="numero-valor" data-contar="20.9" data-casas="1" data-sufixo="%">20,9%</span>
+                    <span class="numero-texto">das pessoas com 60 anos ou mais no Brasil relataram ao menos uma queda no último ano</span>
+                    <small>Ministério da Saúde, estudo ELSI-Brasil (2026)</small>
+                </li>
+            </ul>
+            <p class="numeros-nota">São dados públicos, não números da Correia. Mostram por que o cuidado em casa, com prevenção, faz parte da rotina de tantas famílias.</p>
+        </div>
+    </section>
+
+    <!-- ============ COMO FUNCIONA ============
+         Passos a partir da Resolução COFFITO 565/2022 (atenção domiciliar). Como a Correia faz na prática: PENDENTE. -->
+    <section class="secao secao-escura" id="como-funciona" aria-labelledby="como-titulo">
+        <span class="secao-ladrilho" aria-hidden="true"></span>
+        <div class="conteiner como-grade">
+            <div class="como-texto">
+                <p class="sobretitulo claro">Como funciona</p>
+                <h2 id="como-titulo">Do primeiro contato ao <em>acompanhamento em casa</em></h2>
+                <p>Sem deslocamento, sem sala de espera. O atendimento acontece onde a pessoa idosa vive, com a rotina e a casa dela no centro do plano.</p>
+                <p class="marcador escuro" data-nota="Passos: rascunho. Duração, frequência e o que inclui a primeira consulta dependem do questionário Mercado">rascunho</p>
+                <a class="botao botao-claro botao-destaque" href="#" data-wa data-wa-origin="como_funciona"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Dar o primeiro passo</a>
+            </div>
+            <ol class="passos">
+                <li class="passo revelar">
+                    <span class="passo-num">1</span>
+                    <div>
+                        <h3>Conversa pelo WhatsApp</h3>
+                        <p>Você conta quem precisa do cuidado e o que está acontecendo. A equipe explica como funciona e combina o dia da primeira visita.</p>
+                    </div>
+                </li>
+                <li class="passo revelar">
+                    <span class="passo-num">2</span>
+                    <div>
+                        <h3>Consulta em casa</h3>
+                        <p>Um fisioterapeuta da equipe vai até a casa, conhece a pessoa, a rotina e o ambiente, e faz a avaliação. <span class="pendente">[PENDENTE: duração e o que inclui]</span></p>
+                    </div>
+                </li>
+                <li class="passo revelar">
+                    <span class="passo-num">3</span>
+                    <div>
+                        <h3>Plano de cuidado</h3>
+                        <p>Com a avaliação, o fisioterapeuta define os objetivos e a frequência dos atendimentos, e explica tudo para a família.</p>
+                    </div>
+                </li>
+                <li class="passo revelar">
+                    <span class="passo-num">4</span>
+                    <div>
+                        <h3>Acompanhamento</h3>
+                        <p>Os atendimentos seguem em casa, com orientação para a família e para quem cuida no dia a dia. <span class="pendente">[PENDENTE: frequência e como a família acompanha]</span></p>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ============ CUIDADOS ============
+         "Quem atende" é preenchido pelo script.js a partir do bloco da EQUIPE (data-areas de cada ficha).
+         Para mudar quem atende o quê, mexa só nas fichas da equipe, mais abaixo. -->
+    <section class="secao" id="cuidados" aria-labelledby="cuidados-titulo">
+        <div class="conteiner">
+            <header class="cabeca centro">
+                <p class="sobretitulo">Cuidados</p>
+                <h2 id="cuidados-titulo">Fisioterapia em casa, <em>com quem entende do assunto</em></h2>
+                <p>Cada pessoa é atendida por um fisioterapeuta com atuação na necessidade dela. Você vê aqui quem atende cada cuidado.</p>
+                <p class="marcador" data-nota="Lista de cuidados: rascunho, a partir dos casos citados pela Júlia. Serviços completos: questionário Profissional">rascunho</p>
+            </header>
+            <div class="cuidados">
+                <article class="cuidado revelar" style="--i:0" data-cuidado="neurologica">
+                    <span class="cuidado-num" aria-hidden="true">01</span>
+                    <svg aria-hidden="true"><use href="#i-neuro"/></svg>
+                    <h3>Neurológica</h3>
+                    <p>Para pessoas idosas com condições neurológicas que afetam o movimento, o equilíbrio e a independência no dia a dia.</p>
+                    <p class="quem-atende" data-quem-atende><a href="#quem-somos">Veja quem atende em Quem somos</a></p>
+                </article>
+                <article class="cuidado revelar" style="--i:1" data-cuidado="ortopedica">
+                    <span class="cuidado-num" aria-hidden="true">02</span>
+                    <svg aria-hidden="true"><use href="#i-articulacao"/></svg>
+                    <h3>Ortopédica</h3>
+                    <p>Para dores e limitações de movimento, e para a recuperação depois de fraturas ou cirurgias, com a liberação do médico quando necessário.</p>
+                    <p class="quem-atende" data-quem-atende><a href="#quem-somos">Veja quem atende em Quem somos</a></p>
+                </article>
+                <article class="cuidado revelar" style="--i:2" data-cuidado="prevencao">
+                    <span class="cuidado-num" aria-hidden="true">03</span>
+                    <svg aria-hidden="true"><use href="#i-escudo"/></svg>
+                    <h3>Prevenção e autonomia</h3>
+                    <p>Para quem quer manter força, equilíbrio e mobilidade, com atenção ao risco de quedas e orientações sobre o ambiente da casa.</p>
+                    <p class="quem-atende" data-quem-atende><a href="#quem-somos">Veja quem atende em Quem somos</a></p>
+                </article>
+                <article class="cuidado cuidado-pendente revelar" style="--i:3">
+                    <span class="cuidado-num" aria-hidden="true">04</span>
+                    <svg aria-hidden="true"><use href="#i-mais"/></svg>
+                    <h3>Outros cuidados</h3>
+                    <p><span class="pendente">[PENDENTE: lista completa de serviços da empresa]</span></p>
+                </article>
+            </div>
+            <div class="centro"><a class="botao botao-destaque" href="#" data-wa data-wa-origin="cuidados"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Tirar uma dúvida pelo WhatsApp</a></div>
+        </div>
+    </section>
+
+    <!-- ============ QUEM SOMOS: a fundadora e a equipe ============ -->
+    <section class="secao secao-bege" id="quem-somos" aria-labelledby="quem-titulo">
+        <div class="conteiner">
+            <div class="sobre-grade">
+                <figure class="sobre-foto">
+                    <span class="sobre-aro" aria-hidden="true"></span>
+                    <img src="assets/fundadora/julia-sobre-900.webp" srcset="assets/fundadora/julia-sobre-560.webp 560w, assets/fundadora/julia-sobre-900.webp 900w" sizes="(min-width: 1024px) 440px, 86vw" width="900" height="1125" alt="Júlia Gabriely apoiada no encosto de uma cadeira, sorrindo." loading="lazy">
+                    <figcaption class="flutua flutua-3 cartao-selo"><svg aria-hidden="true"><use href="#i-capelo"/></svg><span><strong>UFS</strong>Fisioterapia, 2024</span></figcaption>
+                </figure>
+                <div class="sobre-texto">
+                    <p class="sobretitulo">Quem somos</p>
+                    <h2 id="quem-titulo">Um nome de família, <em>uma equipe inteira</em></h2>
+                    <blockquote class="citacao"><p>De família para família.</p></blockquote>
+                    <p>A Correia foi fundada pela fisioterapeuta <strong>Júlia Gabriely</strong>. O nome vem do sobrenome e do legado da família dela, e o símbolo são elos que se ligam: um jeito de dizer que ninguém cuida sozinho.</p>
+                    <p class="marcador" data-nota="Texto sobre a origem do nome: rascunho, a partir do briefing de marca (abril/2026). A Júlia aprova o texto">rascunho</p>
+                    <ul class="credenciais">
+                        <li><svg aria-hidden="true"><use href="#i-elo"/></svg><span><strong>Fundadora</strong>Júlia Gabriely, Fisioterapeuta</span></li>
+                        <li><svg aria-hidden="true"><use href="#i-selo"/></svg><span><strong>CREFITO-17 408355-F</strong>Registro profissional</span></li>
+                        <li><svg aria-hidden="true"><use href="#i-capelo"/></svg><span><strong>Fisioterapia</strong>Universidade Federal de Sergipe, 2024</span></li>
+                        <li><svg aria-hidden="true"><use href="#i-plano"/></svg><span><strong>Pós-graduação</strong>Saúde do Idoso e Gerontologia · Faculdade Vanguarda <span class="pendente">[PENDENTE: concluída ou em andamento]</span></span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ============ EQUIPE: bloco único ============
+                 Cada ficha só vai ao ar com: nome como a pessoa quer aparecer, "Fisioterapeuta", CREFITO, formação
+                 e áreas de atuação confirmadas por ela, e foto com autorização escrita da própria pessoa.
+                 data-areas: as áreas de atuação, separadas por espaço, com os mesmos nomes de data-cuidado
+                 (neurologica, ortopedica, prevencao). O script.js usa isso para escrever "Quem atende" em Cuidados.
+                 Nunca escrever "especialista" sem título do COFFITO e RQE em nome da pessoa. -->
+            <div class="equipe-cabeca">
+                <h3 class="equipe-titulo">A equipe</h3>
+                <p>Cada fisioterapeuta aparece com nome, número do CREFITO e áreas de atuação. Quem vai atender depende da necessidade de cada pessoa.</p>
+                <p class="marcador" data-nota="Equipe de 5 fisioterapeutas confirmada pela Júlia. Nomes, CREFITO, áreas e fotos: fichas da equipe (pendentes)">pendente</p>
+            </div>
+            <ul class="equipe">
+                <li class="membro revelar" style="--i:0" data-membro data-nome="Júlia Gabriely" data-areas="">
+                    <img class="membro-foto" src="assets/fundadora/julia-chamada-400.webp" width="400" height="400" alt="Júlia Gabriely" loading="lazy">
+                    <h4>Júlia Gabriely</h4>
+                    <p class="membro-cargo">Fundadora · Fisioterapeuta</p>
+                    <p class="membro-crefito">CREFITO-17 408355-F</p>
+                    <p class="membro-areas"><span class="pendente">[PENDENTE: áreas de atuação na empresa]</span></p>
+                </li>
+                <li class="membro membro-vago revelar" style="--i:1" data-membro data-nome="" data-areas="">
+                    <span class="membro-foto membro-sem-foto" aria-hidden="true"></span>
+                    <h4><span class="pendente">[PENDENTE: nome]</span></h4>
+                    <p class="membro-cargo">Fisioterapeuta</p>
+                    <p class="membro-crefito">CREFITO-17 <span class="pendente">[PENDENTE]</span></p>
+                    <p class="membro-areas"><span class="pendente">[PENDENTE: áreas de atuação]</span></p>
+                </li>
+                <li class="membro membro-vago revelar" style="--i:2" data-membro data-nome="" data-areas="">
+                    <span class="membro-foto membro-sem-foto" aria-hidden="true"></span>
+                    <h4><span class="pendente">[PENDENTE: nome]</span></h4>
+                    <p class="membro-cargo">Fisioterapeuta</p>
+                    <p class="membro-crefito">CREFITO-17 <span class="pendente">[PENDENTE]</span></p>
+                    <p class="membro-areas"><span class="pendente">[PENDENTE: áreas de atuação]</span></p>
+                </li>
+                <li class="membro membro-vago revelar" style="--i:3" data-membro data-nome="" data-areas="">
+                    <span class="membro-foto membro-sem-foto" aria-hidden="true"></span>
+                    <h4><span class="pendente">[PENDENTE: nome]</span></h4>
+                    <p class="membro-cargo">Fisioterapeuta</p>
+                    <p class="membro-crefito">CREFITO-17 <span class="pendente">[PENDENTE]</span></p>
+                    <p class="membro-areas"><span class="pendente">[PENDENTE: áreas de atuação]</span></p>
+                </li>
+                <li class="membro membro-vago revelar" style="--i:4" data-membro data-nome="" data-areas="">
+                    <span class="membro-foto membro-sem-foto" aria-hidden="true"></span>
+                    <h4><span class="pendente">[PENDENTE: nome]</span></h4>
+                    <p class="membro-cargo">Fisioterapeuta</p>
+                    <p class="membro-crefito">CREFITO-17 <span class="pendente">[PENDENTE]</span></p>
+                    <p class="membro-areas"><span class="pendente">[PENDENTE: áreas de atuação]</span></p>
+                </li>
+            </ul>
+            <div class="centro"><a class="botao botao-destaque" href="#" data-wa data-wa-origin="quem_somos"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Falar com a equipe</a></div>
+        </div>
+    </section>
+
+    <!-- ============ O QUE NOS LIGA (palavras da paleta da marca) ============ -->
+    <section class="secao" id="valores" aria-labelledby="valores-titulo">
+        <div class="conteiner">
+            <header class="cabeca centro">
+                <p class="sobretitulo">O que nos liga</p>
+                <h2 id="valores-titulo">Quatro <em>elos</em> em cada atendimento</h2>
+                <p class="marcador" data-nota="Palavras da paleta da marca; frases de cada cartão: rascunho">rascunho</p>
+            </header>
+            <ul class="valores">
+                <li class="valor valor-oliva revelar" style="--i:0">
+                    <span class="valor-palavras">Legado · Força · Raiz</span>
+                    <h3>Legado</h3>
+                    <p>Um nome de família que assume o compromisso de cuidar bem.</p>
+                </li>
+                <li class="valor valor-salvia revelar" style="--i:1">
+                    <span class="valor-palavras">Acolhimento · Escuta · Pertencimento</span>
+                    <h3>Acolhimento</h3>
+                    <p>Ouvir a pessoa idosa e a família antes de qualquer plano.</p>
+                </li>
+                <li class="valor valor-terracota revelar" style="--i:2">
+                    <span class="valor-palavras">Família · Elo · Permanência</span>
+                    <h3>Família</h3>
+                    <p>Quem cuida no dia a dia faz parte do atendimento.</p>
+                </li>
+                <li class="valor valor-creme revelar" style="--i:3">
+                    <span class="valor-palavras">Clareza · Respiro · Segurança</span>
+                    <h3>Segurança</h3>
+                    <p>Explicar cada etapa com clareza, para todos se sentirem seguros.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ============ ATENDIMENTO: região, plano ou particular, horários ============ -->
+    <section class="secao secao-bege" id="atendimento" aria-labelledby="atendimento-titulo">
+        <div class="conteiner">
+            <header class="cabeca centro">
+                <p class="sobretitulo">Atendimento</p>
+                <h2 id="atendimento-titulo">Onde e como <em>a equipe atende</em></h2>
+            </header>
+            <div class="info-cartoes">
+                <article class="info-cartao revelar" style="--i:0">
+                    <svg aria-hidden="true"><use href="#i-pin"/></svg>
+                    <h3>Em casa, em Aracaju</h3>
+                    <p>A equipe vai até a casa da pessoa idosa, em Aracaju/SE.</p>
+                    <p><span class="pendente">[PENDENTE: bairros e região atendidos]</span></p>
+                    <a class="link-seta" href="#" data-wa data-wa-origin="regiao">Perguntar pelo meu bairro</a>
+                </article>
+                <article class="info-cartao revelar" style="--i:1">
+                    <svg aria-hidden="true"><use href="#i-cartao"/></svg>
+                    <h3>Plano de saúde ou particular</h3>
+                    <p>A cobertura do atendimento em casa depende do contrato de cada plano. Informe o seu no WhatsApp e a equipe confirma.</p>
+                    <p><span class="pendente">[PENDENTE: planos aceitos e atendimento particular]</span></p>
+                    <a class="link-seta" href="#" data-wa data-wa-origin="plano">Consultar o meu plano</a>
+                </article>
+                <article class="info-cartao revelar" style="--i:2">
+                    <svg aria-hidden="true"><use href="#i-relogio"/></svg>
+                    <h3>Dias e horários</h3>
+                    <p>Os atendimentos são combinados com a família, de acordo com a rotina da casa.</p>
+                    <p><span class="pendente">[PENDENTE: dias e horários de atendimento]</span></p>
+                    <a class="link-seta" href="#" data-wa data-wa-origin="horarios">Combinar um horário</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PERGUNTAS FREQUENTES ============ -->
+    <section class="secao" id="duvidas" aria-labelledby="duvidas-titulo">
+        <div class="conteiner duvidas-grade">
+            <header class="cabeca">
+                <p class="sobretitulo">Dúvidas</p>
+                <h2 id="duvidas-titulo">Perguntas <em>frequentes</em></h2>
+                <p>Não achou a sua? Pergunte direto para a equipe.</p>
+                <p class="marcador" data-nota="Perguntas: rascunho. As reais vêm do questionário Persona (pergunta 08)">rascunho</p>
+                <a class="botao botao-destaque" href="#" data-wa data-wa-origin="faq"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Perguntar pelo WhatsApp</a>
+            </header>
+            <div class="faq">
+                <div class="faq-item">
+                    <h3><button type="button" aria-expanded="false" aria-controls="faq-1" id="faq-1-b">O atendimento é feito em casa?<svg aria-hidden="true"><use href="#i-mais"/></svg></button></h3>
+                    <div class="faq-resposta" id="faq-1" role="region" aria-labelledby="faq-1-b"><div><p>Sim. A equipe da Correia atende na casa da pessoa idosa, em Aracaju/SE. <span class="pendente">[PENDENTE: bairros atendidos]</span></p></div></div>
+                </div>
+                <div class="faq-item">
+                    <h3><button type="button" aria-expanded="false" aria-controls="faq-2" id="faq-2-b">Quem vai atender?<svg aria-hidden="true"><use href="#i-mais"/></svg></button></h3>
+                    <div class="faq-resposta" id="faq-2" role="region" aria-labelledby="faq-2-b"><div><p>Um fisioterapeuta da equipe com atuação na necessidade da pessoa. Na seção <a href="#quem-somos">Quem somos</a> você vê cada profissional, com o número do CREFITO.</p></div></div>
+                </div>
+                <div class="faq-item">
+                    <h3><button type="button" aria-expanded="false" aria-controls="faq-3" id="faq-3-b">Atende pelo plano de saúde?<svg aria-hidden="true"><use href="#i-mais"/></svg></button></h3>
+                    <div class="faq-resposta" id="faq-3" role="region" aria-labelledby="faq-3-b"><div><p>A cobertura da fisioterapia em casa depende do contrato de cada plano. Informe o seu plano no WhatsApp e a equipe confirma as condições. <span class="pendente">[PENDENTE: planos aceitos]</span></p></div></div>
+                </div>
+                <div class="faq-item">
+                    <h3><button type="button" aria-expanded="false" aria-controls="faq-4" id="faq-4-b">Precisa de pedido médico?<svg aria-hidden="true"><use href="#i-mais"/></svg></button></h3>
+                    <div class="faq-resposta" id="faq-4" role="region" aria-labelledby="faq-4-b"><div><p><span class="pendente">[PENDENTE: resposta da Júlia, questionário Mercado]</span></p></div></div>
+                </div>
+                <div class="faq-item">
+                    <h3><button type="button" aria-expanded="false" aria-controls="faq-5" id="faq-5-b">Como é a primeira consulta?<svg aria-hidden="true"><use href="#i-mais"/></svg></button></h3>
+                    <div class="faq-resposta" id="faq-5" role="region" aria-labelledby="faq-5-b"><div><p>O fisioterapeuta vai até a casa, conhece a pessoa, a rotina e o ambiente, faz a avaliação e explica o plano de cuidado para a família. <span class="pendente">[PENDENTE: duração e o que inclui]</span></p></div></div>
+                </div>
+                <div class="faq-item">
+                    <h3><button type="button" aria-expanded="false" aria-controls="faq-6" id="faq-6-b">A família pode acompanhar os atendimentos?<svg aria-hidden="true"><use href="#i-mais"/></svg></button></h3>
+                    <div class="faq-resposta" id="faq-6" role="region" aria-labelledby="faq-6-b"><div><p><span class="pendente">[PENDENTE: resposta da Júlia, questionário Mercado]</span></p></div></div>
+                </div>
+                <div class="faq-item">
+                    <h3><button type="button" aria-expanded="false" aria-controls="faq-7" id="faq-7-b">Como faço para agendar?<svg aria-hidden="true"><use href="#i-mais"/></svg></button></h3>
+                    <div class="faq-resposta" id="faq-7" role="region" aria-labelledby="faq-7-b"><div><p>Pelo WhatsApp, em qualquer botão desta página. Conte quem vai ser atendido e o que está acontecendo, e a equipe combina a primeira visita.</p></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CHAMADA FINAL ============ -->
+    <section class="chamada" aria-labelledby="chamada-titulo">
+        <span class="secao-ladrilho" aria-hidden="true"></span>
+        <div class="conteiner chamada-grade">
+            <div class="chamada-foto-caixa">
+                <svg class="chamada-elos" viewBox="0 0 300 240" aria-hidden="true" focusable="false">
+                    <ellipse cx="120" cy="120" rx="112" ry="112" pathLength="1"/>
+                    <ellipse cx="180" cy="120" rx="112" ry="112" pathLength="1"/>
+                </svg>
+                <img class="chamada-foto" src="assets/fundadora/julia-chamada-720.webp" srcset="assets/fundadora/julia-chamada-400.webp 400w, assets/fundadora/julia-chamada-720.webp 720w" sizes="(min-width: 768px) 220px, 160px" width="720" height="720" alt="Júlia Gabriely sorrindo, olhando para cima." loading="lazy">
+            </div>
+            <div>
+                <p class="slogan">Envelhecer com saúde, viver com qualidade.</p>
+                <h2 id="chamada-titulo">Vamos conversar sobre o cuidado de <em>quem você ama?</em></h2>
+                <a class="botao botao-claro botao-destaque" href="#" data-wa data-wa-origin="cta_final"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Agendar avaliação pelo WhatsApp</a>
+                <p class="marcador escuro" data-nota="Frase da bio do Instagram (@correiasaude_). Confirmar se é o slogan oficial">a confirmar</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="rodape">
+    <div class="conteiner rodape-grade">
+        <div class="rodape-marca">
+            <img class="rodape-logo" src="assets/marca/logo-horizontal-creme.webp" width="640" height="142" alt="Correia · Longevidade &amp; Saúde" loading="lazy">
+            <p class="rodape-slogan">De família para família.</p>
+            <!-- Dados obrigatórios da empresa (Resolução COFFITO 37/1984, art. 28): entram assim que confirmados. -->
+            <p class="rodape-dados">
+                <span class="pendente pendente-escuro">[PENDENTE: nome oficial]</span>
+                <span class="pendente pendente-escuro">[PENDENTE: CNPJ]</span>
+                <span class="pendente pendente-escuro">[PENDENTE: registro da empresa no CREFITO-17]</span>
+                <span class="pendente pendente-escuro">[PENDENTE: responsável técnico e CREFITO]</span>
+            </p>
+        </div>
+        <div>
+            <h2 class="rodape-titulo">Contato</h2>
+            <a class="rodape-link" href="#" data-wa data-wa-origin="rodape"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>(79) 9 9870-2192</a>
+            <a class="rodape-link" href="https://www.instagram.com/correiasaude_/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-insta"/></svg>@correiasaude_</a>
+            <p class="pendente pendente-escuro">[PENDENTE: confirmar WhatsApp e e-mail da empresa]</p>
+        </div>
+        <div>
+            <h2 class="rodape-titulo">Atendimento</h2>
+            <p class="rodape-link"><svg aria-hidden="true"><use href="#i-casa"/></svg>Domiciliar, em Aracaju/SE</p>
+            <p class="rodape-link"><svg aria-hidden="true"><use href="#i-elo"/></svg>Fundadora: Júlia Gabriely, Fisioterapeuta, CREFITO-17 408355-F</p>
+            <p class="pendente pendente-escuro">[PENDENTE: bairros e horários]</p>
+        </div>
+    </div>
+    <div class="rodape-base">
+        <p>© <span data-ano>2026</span> Correia <span class="pendente pendente-escuro">[PENDENTE: nome oficial]</span>. As informações deste site não substituem a avaliação de um profissional de saúde.</p>
+        <p><a href="politica-de-privacidade.html">Política de privacidade</a> · <button type="button" class="link-cookies" data-consent-open>Preferências de cookies</button></p>
+    </div>
+</footer>
+
+<a class="whats-flutuante" href="#" data-wa data-wa-origin="botao_flutuante" aria-label="Conversar pelo WhatsApp"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg></a>
+
+<!-- FORMULÁRIO ANTES DO WHATSAPP (lead-form.js)
+     Todo botão com data-wa abre esta janela. Depois do envio, o WhatsApp abre com a mensagem do botão + as respostas,
+     e a janela mostra a confirmação. Sem JavaScript, os botões vão direto ao WhatsApp (href montado em script.js).
+     Só quatro perguntas, nenhuma sobre sintoma ou queixa (dado de saúde fica na conversa com a equipe).
+     data-clarity-mask: o Microsoft Clarity não grava nada do que é digitado aqui. -->
+<div class="lead-modal" id="lead-modal" data-clarity-mask="true" hidden>
+    <div class="lead-fundo" data-lead-fechar></div>
+    <div class="lead-janela" role="dialog" aria-modal="true" aria-labelledby="lead-titulo" aria-describedby="lead-intro">
+        <button class="lead-fechar" type="button" data-lead-fechar aria-label="Fechar formulário"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+
+        <div class="lead-passo" id="lead-passo">
+            <span class="sobretitulo">Correia · Fisioterapia em casa</span>
+            <h2 id="lead-titulo">Agende a avaliação pelo <em>WhatsApp</em></h2>
+            <p class="lead-intro" id="lead-intro">Quatro respostas rápidas e a conversa abre no WhatsApp com a mensagem pronta.</p>
+
+            <form class="lead-form" id="lead-form" novalidate>
+                <fieldset class="lead-campo" id="lead-paciente">
+                    <legend>Quem será atendido?</legend>
+                    <div class="lead-escolhas">
+                        <label class="lead-escolha"><input type="radio" name="paciente" value="proprio"><span>Eu mesmo(a)</span></label>
+                        <label class="lead-escolha"><input type="radio" name="paciente" value="pai_mae"><span>Meu pai ou minha mãe</span></label>
+                        <label class="lead-escolha"><input type="radio" name="paciente" value="outro_familiar"><span>Outro familiar</span></label>
+                    </div>
+                    <p class="lead-erro" id="lead-paciente-erro" hidden>Escolha uma opção.</p>
+                </fieldset>
+
+                <fieldset class="lead-campo" id="lead-convenio">
+                    <legend>Plano de saúde ou particular?</legend>
+                    <div class="lead-escolhas">
+                        <label class="lead-escolha"><input type="radio" name="convenio" value="plano"><span>Plano de saúde</span></label>
+                        <label class="lead-escolha"><input type="radio" name="convenio" value="particular"><span>Particular</span></label>
+                        <label class="lead-escolha"><input type="radio" name="convenio" value="nao_sei"><span>Ainda não sei</span></label>
+                    </div>
+                    <p class="lead-erro" id="lead-convenio-erro" hidden>Escolha uma opção.</p>
+                </fieldset>
+
+                <div class="lead-campo">
+                    <label for="lead-nome">Como podemos te chamar?</label>
+                    <input id="lead-nome" name="nome" type="text" placeholder="Seu nome" autocomplete="given-name" required>
+                    <p class="lead-erro" id="lead-nome-erro" hidden>Escreva seu nome.</p>
+                </div>
+
+                <div class="lead-campo">
+                    <label for="lead-whatsapp">Seu WhatsApp com DDD</label>
+                    <input id="lead-whatsapp" name="whatsapp" type="tel" inputmode="numeric" placeholder="(79) 99999-9999" autocomplete="tel-national" maxlength="15" required>
+                    <p class="lead-erro" id="lead-whatsapp-erro" hidden>Confira o número, com DDD.</p>
+                </div>
+
+                <button class="botao botao-destaque lead-enviar" type="submit"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Continuar no WhatsApp</button>
+                <p class="lead-nota">Você confirma o envio da mensagem no WhatsApp. Suas respostas vão só para a conversa com a equipe. <a href="politica-de-privacidade.html">Política de privacidade</a></p>
+            </form>
+        </div>
+
+        <!-- Confirmação: entra no lugar do formulário depois do envio -->
+        <div class="lead-sucesso" id="lead-sucesso" hidden>
+            <span class="lead-sucesso-icone" aria-hidden="true"><svg><use href="#i-check"/></svg></span>
+            <h2 id="lead-sucesso-titulo" tabindex="-1">Tudo certo<span id="lead-sucesso-nome"></span>!</h2>
+            <p class="lead-intro">Abrimos o WhatsApp da Correia com a sua mensagem pronta. <strong>É só tocar em enviar por lá.</strong> Se ele não abriu, use o botão abaixo.</p>
+            <a class="botao botao-destaque lead-enviar" id="lead-sucesso-link" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Abrir o WhatsApp de novo</a>
+            <button class="lead-voltar" type="button" data-lead-fechar>Voltar ao site</button>
+        </div>
+    </div>
+</div>
+
+<!-- Aviso de cookies (consent.js): aparece até a pessoa escolher e reabre por "Preferências de cookies".
+     Nenhuma ferramenta de medição ou anúncio roda antes da escolha. -->
+<div class="cookie-aviso" id="aviso-cookies" role="dialog" aria-modal="false" aria-labelledby="cookie-titulo" aria-describedby="cookie-texto" hidden>
+    <p class="cookie-titulo" id="cookie-titulo">Sua privacidade</p>
+    <p class="cookie-texto" id="cookie-texto">Usamos cookies para entender como o site é usado e, se a Correia anunciar, medir os anúncios. Você escolhe o que aceita. <a href="politica-de-privacidade.html">Saiba mais</a>.</p>
+    <div class="cookie-opcoes" hidden>
+        <label class="cookie-opcao">
+            <input type="checkbox" id="cookie-estatistica">
+            <span><strong>Estatística</strong>Google Analytics e Microsoft Clarity, para entender como o site é usado.</span>
+        </label>
+        <label class="cookie-opcao">
+            <input type="checkbox" id="cookie-marketing">
+            <span><strong>Marketing</strong>Google e Meta (Facebook e Instagram), para medir os anúncios.</span>
+        </label>
+    </div>
+    <div class="cookie-acoes">
+        <button class="cookie-botao" type="button" data-consent="recusar">Recusar</button>
+        <button class="cookie-botao cookie-botao-link" type="button" data-consent="personalizar">Personalizar</button>
+        <button class="cookie-botao cookie-botao-link" type="button" data-consent="salvar" hidden>Salvar escolha</button>
+        <button class="cookie-botao cookie-botao-principal" type="button" data-consent="aceitar">Aceitar</button>
+    </div>
+</div>
+
+<!-- Ordem importa: eventos.js cria window.correiaTrack; consent.js cria window.correiaConsent; script.js monta os links
+     do WhatsApp e window.correiaWhats; lead-form.js abre o formulário nos botões do WhatsApp. -->
+<script src="eventos.js?v=20261126-1" defer></script>
+<script src="consent.js?v=20261126-1" defer></script>
+<script src="script.js?v=20261126-1" defer></script>
+<script src="lead-form.js?v=20261126-1" defer></script>
+</body>
+</html>
