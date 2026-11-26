@@ -50,9 +50,13 @@ img { display: block; max-width: 100%; height: auto; }
 img[hidden] { display: none; }
 a { color: inherit; }
 svg { width: 22px; height: 22px; flex: none; }
-h1, h2, h3, h4 { font-family: var(--fonte-titulo); font-weight: 500; line-height: 1.12; margin: 0 0 .5em; color: var(--texto); letter-spacing: -.005em; }
+h1, h2, h3, h4 { font-family: var(--fonte-titulo); font-weight: 500; line-height: 1.12; margin: 0 0 .5em; color: var(--texto); letter-spacing: -.005em; text-wrap: balance; }
 h1 em, h2 em { font-style: italic; color: var(--terracota); }
 p { margin: 0 0 1em; }
+/* Linhas equilibradas: os títulos não deixam uma palavra sozinha na última linha, e os parágrafos evitam viúvas */
+p, li, blockquote { text-wrap: pretty; }
+::selection { background: rgba(167, 111, 78, .28); color: var(--texto); }
+html { accent-color: var(--oliva); }
 :focus-visible { outline: 3px solid var(--terracota-escuro); outline-offset: 3px; border-radius: 6px; }
 
 .conteiner { width: min(100% - 2 * var(--gutter), var(--largura)); margin-inline: auto; }
@@ -84,6 +88,8 @@ body.sem-marcadores .pendente, body.sem-marcadores .marcador { display: none; }
 /* ---------- Botões ---------- */
 .botao { position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 14px 28px; border-radius: 99px; background: var(--oliva); color: var(--creme); text-decoration: none; font: 500 1rem/1.2 var(--fonte-texto); letter-spacing: .01em; text-align: center; box-shadow: 0 12px 26px rgba(62, 67, 27, .26); transition: transform .3s var(--ease), background-color .3s var(--ease), box-shadow .3s var(--ease); }
 .botao svg { width: 20px; height: 20px; position: relative; }
+/* Celular: menos folga lateral para "Agendar avaliação pelo WhatsApp" caber numa linha a partir de 375 px */
+@media (max-width: 479px) { .botao { padding: 14px 20px; gap: 8px; font-size: .96rem; text-wrap: balance; } }
 .botao-pequeno { min-height: 46px; padding: 10px 20px; font-size: .88rem; box-shadow: none; }
 .botao-claro { background: var(--creme); color: var(--oliva); box-shadow: 0 12px 26px rgba(0, 0, 0, .2); }
 /* Brilho que passa pelo botão de tempos em tempos */
@@ -156,6 +162,8 @@ html:not(.js) .palavra { opacity: 1; transform: none; }
 .chips { list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
 .chips li { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px 9px 12px; border-radius: 99px; background: rgba(251, 248, 240, .8); border: 1px solid var(--linha); font-size: .84rem; color: var(--texto-2); }
 .chips svg { width: 18px; height: 18px; color: var(--terracota); }
+/* Até o computador, os destaques repetiriam a faixa verde logo abaixo da foto: ficam só no layout largo */
+@media (max-width: 1023px) { .chips { display: none; } }
 
 .hero-foto { position: relative; isolation: isolate; justify-self: center; width: min(100% - 24px, 460px); margin: 0 0 12px; }
 .hero-moldura { position: relative; border-radius: 240px 240px var(--raio-grande) var(--raio-grande); overflow: hidden; aspect-ratio: 4 / 5; box-shadow: var(--sombra); background: var(--areia); }
@@ -213,6 +221,12 @@ html:not(.js) .palavra { opacity: 1; transform: none; }
     .sinal.visivel:hover { transform: translateY(-6px); box-shadow: var(--sombra); }
     .sinal:hover .sinal-icone { transform: rotate(-8deg) scale(1.06); background: var(--terracota-fundo); color: var(--creme); }
     .sinal:hover::after { transform: rotate(-10deg) scale(1.08); opacity: .2; }
+}
+/* Celular: ícone ao lado do texto, para os cinco sinais caberem em menos rolagem */
+@media (max-width: 599px) {
+    .sinal:not(.sinal-chamada) { display: grid; grid-template-columns: 48px 1fr; column-gap: 16px; padding: 22px 20px; }
+    .sinal:not(.sinal-chamada) .sinal-icone { grid-row: span 2; width: 48px; height: 48px; margin: 2px 0 0; }
+    .sinal h3 { font-size: 1.28rem; margin-bottom: .3em; }
 }
 .nota-centro { max-width: 600px; margin: 0 auto; text-align: center; font-size: .86rem; color: var(--texto-2); }
 
@@ -309,6 +323,7 @@ html:not(.js) .palavra { opacity: 1; transform: none; }
 .valor-creme { background: var(--creme-claro); color: var(--texto-2); border: 1px solid var(--linha); }
 .valor-creme::before { background-image: url("assets/marca/simbolo-terracota.webp"); opacity: .12; }
 .valor-creme .valor-palavras { color: var(--terracota-escuro); }
+@media (max-width: 599px) { .valor { min-height: 0; } .valor-palavras { padding-bottom: 40px; } }
 @media (hover: hover) { .valor.visivel:hover { transform: translateY(-6px); box-shadow: var(--sombra); } .valor:hover::before { transform: rotate(-12deg) scale(1.1); } }
 
 /* ---------- Atendimento ---------- */
@@ -386,7 +401,10 @@ a.rodape-link:hover { color: var(--creme); text-decoration: underline; }
     .credenciais { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 768px) {
-    .chamada-grade { grid-template-columns: auto 1fr; justify-items: start; text-align: left; gap: 64px; max-width: 940px; }
+    /* Folga maior entre a foto e o texto: os elos em volta da foto não cruzam o título */
+    .chamada-grade { grid-template-columns: auto 1fr; justify-items: start; text-align: left; gap: 104px; max-width: 980px; }
+    .chamada-elos { left: -30%; width: 160%; top: -14%; }
+    .rodape-base { padding-bottom: 32px; }
     .chamada h2 { margin-inline: 0; }
     .chamada .marcador { margin-inline: 0; }
     .chamada-foto-caixa, .chamada-foto { width: 220px; }
