@@ -190,7 +190,7 @@ h3 { font-size: 1.4rem; }
 .hero .sobretitulo { margin-bottom: 22px; font-size: .8rem; font-weight: 600; letter-spacing: .22em; color: var(--oliva); }
 .hero .realce { color: var(--oliva); font-weight: 600; background: linear-gradient(var(--oliva), var(--oliva)) 0 100% / 0% 2px no-repeat; }
 .hero.pronto .realce, html:not(.js) .hero .realce { background-size: 100% 2px; }
-.hero .link-seta { color: var(--terracota); font-size: 1rem; }
+.hero .link-seta { color: var(--oliva); font-size: 1rem; border-bottom: 2px solid var(--terracota); }
 .palavra { display: inline-block; opacity: 0; transform: translateY(.5em); transition: opacity .7s var(--ease), transform .7s var(--ease); transition-delay: calc(var(--k) * 70ms + 150ms); }
 .hero.pronto .palavra { opacity: 1; transform: none; }
 html:not(.js) .palavra { opacity: 1; transform: none; }
