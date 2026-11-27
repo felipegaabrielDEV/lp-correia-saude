@@ -172,8 +172,22 @@ h3 { font-size: 1.4rem; }
 .hero { position: relative; overflow-x: clip; padding-top: clamp(30px, 5vw, 60px); background: linear-gradient(transparent 72%, var(--creme)), radial-gradient(circle at 88% 12%, rgba(167, 111, 78, .16), transparent 42%), radial-gradient(circle at 0% 70%, rgba(144, 143, 104, .2), transparent 42%), var(--creme); }
 .hero-ladrilho { position: absolute; inset: 0 0 30% 40%; background: url("assets/marca/ladrilho-oliva.webp") 0 0 / 110px 110px repeat; opacity: .06; -webkit-mask-image: radial-gradient(circle at 80% 30%, #000, transparent 70%); mask-image: radial-gradient(circle at 80% 30%, #000, transparent 70%); pointer-events: none; }
 .hero-grade { position: relative; display: grid; gap: 48px; align-items: center; }
-.hero h1 { font-size: clamp(2.4rem, 6.2vw, 3.9rem); line-height: 1.07; }
-.hero h1 em { display: block; }
+/* Reajuste do topo (27/11/2026, a partir da proposta do ChatGPT, só com as cores da paleta):
+   título em verde-oliva #3E431B, mais firme e fechado, com o trecho em itálico terracota inteiro numa linha no computador */
+.hero h1 { font-size: clamp(2.4rem, 6.2vw, 4.1rem); line-height: 1.03; font-weight: 600; letter-spacing: -.028em; color: var(--oliva); text-wrap: pretty; }
+.hero h1 em { display: block; font-weight: 500; letter-spacing: -.02em; }
+@media (min-width: 1280px) { .hero h1 em { white-space: nowrap; } }
+/* Tablet largo (1024 a 1199 px): o cabeçalho fica mais compacto para o menu caber numa linha */
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .topo .topo-dentro { gap: 12px; }
+    .topo .marca { padding-right: 18px; }
+    .topo .menu { gap: 22px; margin-left: 18px; }
+    .topo .menu a { font-size: .84rem; }
+    .topo .menu a + a::before { left: -13px; }
+    .topo .botao-pequeno { padding: 10px 16px; font-size: .84rem; }
+}
+.hero .sobretitulo { margin-bottom: 22px; font-size: .8rem; font-weight: 600; letter-spacing: .22em; color: var(--terracota-escuro); }
+.hero .sobretitulo::before { width: 56px; }
 .palavra { display: inline-block; opacity: 0; transform: translateY(.5em); transition: opacity .7s var(--ease), transform .7s var(--ease); transition-delay: calc(var(--k) * 70ms + 150ms); }
 .hero.pronto .palavra { opacity: 1; transform: none; }
 html:not(.js) .palavra { opacity: 1; transform: none; }
@@ -184,8 +198,8 @@ html:not(.js) .palavra { opacity: 1; transform: none; }
 .lead strong { color: var(--texto); font-weight: 500; }
 .acoes { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 26px; margin-top: 8px; }
 .chips { list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
-.chips li { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px 9px 12px; border-radius: 99px; background: rgba(251, 248, 240, .8); border: 1px solid var(--linha); font-size: .84rem; color: var(--texto-2); }
-.chips svg { width: 18px; height: 18px; color: var(--terracota); }
+.chips li { display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px 10px 14px; border-radius: 99px; background: rgba(251, 248, 240, .55); border: 1px solid rgba(167, 111, 78, .5); font-size: .9rem; color: var(--oliva); }
+.chips svg { width: 22px; height: 22px; color: var(--oliva); }
 /* Até o computador, os destaques repetiriam a faixa verde logo abaixo da foto: ficam só no layout largo */
 @media (max-width: 1023px) { .chips { display: none; } }
 
@@ -195,7 +209,7 @@ html:not(.js) .palavra { opacity: 1; transform: none; }
 .hero-moldura::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .5); pointer-events: none; }
 @keyframes respirar { 50% { transform: scale(1.035); } }
 /* O "C" de elos da marca, grande e suave, atrás da foto */
-.hero-simbolo { position: absolute; z-index: -2; width: 74%; left: -26%; top: -7%; opacity: .22; animation: deriva 18s ease-in-out infinite alternate; }
+.hero-simbolo { position: absolute; z-index: -2; width: 98%; left: -52%; top: -9%; opacity: .2; animation: deriva 18s ease-in-out infinite alternate; }
 @keyframes deriva { to { transform: translate(18px, -14px) rotate(-3deg); } }
 /* Elos: dois anéis que se desenham ao carregar */
 .hero-elos { position: absolute; z-index: -1; inset: -6% -9% -5% -9%; width: 118%; height: 111%; overflow: visible; pointer-events: none; }
@@ -208,7 +222,9 @@ html:not(.js) .palavra { opacity: 1; transform: none; }
 .flutua-2 { animation-duration: 8.5s; animation-delay: -2s; } .flutua-3 { animation-duration: 6.5s; animation-delay: -4s; }
 @keyframes flutua { 50% { transform: translateY(-9px); } }
 .cartao-credencial { left: -10px; bottom: 28px; display: flex; align-items: center; gap: 12px; padding: 12px 18px 12px 14px; background: rgba(251, 248, 240, .97); border-radius: 18px; box-shadow: var(--sombra); font-size: .74rem; line-height: 1.4; color: var(--texto-2); }
-.cartao-credencial img { width: 30px; }
+.cartao-credencial img { width: 36px; }
+/* Fio fino entre o símbolo e o nome (a proposta do topo) */
+.cartao-credencial span { padding-left: 14px; border-left: 1px solid rgba(62, 67, 27, .28); }
 .cartao-credencial strong { display: block; font: 500 1.08rem/1.15 var(--fonte-titulo); color: var(--texto); }
 .cartao-selo { display: flex; align-items: center; gap: 10px; padding: 10px 16px 10px 12px; background: var(--oliva); color: var(--creme); border-radius: 99px; box-shadow: var(--sombra); font-size: .74rem; line-height: 1.3; }
 .cartao-selo svg { width: 28px; height: 28px; padding: 5px; border-radius: 50%; background: rgba(245, 238, 221, .14); color: var(--terracota-clara); }
@@ -520,8 +536,8 @@ a.rodape-link:hover { color: var(--creme); text-decoration: underline; }
 .rodape-base a { min-height: 44px; }
 
 /* ---------- Botão flutuante ---------- */
-.whats-flutuante { position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom)); z-index: 800; width: 60px; height: 60px; display: grid; place-items: center; border-radius: 50%; background: #25D366; color: var(--branco); box-shadow: 0 14px 30px -10px rgba(37, 211, 102, .65), 0 4px 12px rgba(0, 0, 0, .18); transition: transform .3s var(--ease), opacity .3s; }
-.whats-flutuante::before { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid #25D366; animation: pulsa 2.6s var(--ease) infinite; pointer-events: none; }
+.whats-flutuante { position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom)); z-index: 800; width: 60px; height: 60px; display: grid; place-items: center; border-radius: 50%; background: var(--oliva); color: var(--creme); box-shadow: 0 14px 30px -10px rgba(62, 67, 27, .7), 0 4px 12px rgba(0, 0, 0, .18); transition: transform .3s var(--ease), opacity .3s; }
+.whats-flutuante::before { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--terracota); animation: pulsa 2.6s var(--ease) infinite; pointer-events: none; }
 @keyframes pulsa { from { transform: scale(1); opacity: .8; } to { transform: scale(1.7); opacity: 0; } }
 .whats-flutuante svg { width: 30px; height: 30px; }
 @media (hover: hover) { .whats-flutuante:hover { transform: scale(1.07); } }
@@ -552,9 +568,14 @@ a.rodape-link:hover { color: var(--creme); text-decoration: underline; }
     :root { --header-h: 86px; }
     .marca-logo { height: 46px; }
     .so-desktop { display: inline-flex !important; }
-    .menu { display: flex; }
+    /* Menu ao lado do logotipo, com um fio de separação e pontos entre os links; o botão fica à direita */
+    .marca { margin-right: 0; padding-right: 32px; border-right: 1px solid rgba(62, 67, 27, .2); min-height: 44px; }
+    .menu { display: flex; gap: 36px; margin: 0 auto 0 32px; }
+    .menu a { position: relative; }
+    .menu a + a::before { content: ""; position: absolute; left: -19px; top: 50%; width: 3px; height: 3px; margin-top: -1.5px; border-radius: 50%; background: var(--salvia); }
+    .menu a, .topo .botao { white-space: nowrap; }
     .menu-botao, .menu-movel { display: none !important; }
-    .hero-grade { grid-template-columns: 1.1fr .9fr; gap: 72px; }
+    .hero-grade { grid-template-columns: minmax(0, 1fr) 460px; gap: 56px; }
     .hero-foto { justify-self: end; }
     .sinais { grid-template-columns: repeat(3, 1fr); }
     .como-grade { grid-template-columns: .9fr 1.1fr; gap: 76px; align-items: start; }
