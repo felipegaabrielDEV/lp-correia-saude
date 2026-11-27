@@ -383,8 +383,8 @@ html:not(.js) .palavra { opacity: 1; transform: none; }
 #para-quem { background: linear-gradient(180deg, var(--creme) 0%, #EFE7D2 100%); }
 #para-quem::before { content: ""; position: absolute; right: -90px; top: 110px; width: 420px; aspect-ratio: 417 / 451; background: url("assets/marca/simbolo-salvia.webp") center / contain no-repeat; opacity: .1; pointer-events: none; }
 #para-quem > .conteiner { position: relative; }
-/* Terracota escuro sobre a faixa clara: contraste de título grande (acima de 3:1) */
-#para-quem-titulo em { display: inline-block; padding: 0 .3em .06em; margin: 0 -.12em; border-radius: 14px; font-size: 1.08em; color: var(--terracota-escuro); background: linear-gradient(transparent 8%, rgba(217, 176, 143, .5) 8%); }
+/* "está na hora": estilo de antes, só com a cor em verde-oliva médio (#596131, o mesmo tom dos ícones da faixa verde): contraste 5,6:1 e destaque claro sobre o título escuro */
+#para-quem-titulo em { color: #596131; }
 .sinal { border-top: 3px solid var(--terracota); box-shadow: 0 16px 30px -20px rgba(44, 48, 18, .45); }
 .sinal-icone { background: var(--oliva); color: var(--creme); }
 .sinais > .sinal:nth-child(2), .sinais > .sinal:nth-child(4) { border-color: transparent; border-top-color: var(--terracota-clara); }
@@ -411,7 +411,11 @@ html:not(.js) .palavra { opacity: 1; transform: none; }
     .sinal:not(.sinal-chamada) .sinal-icone { grid-row: span 2; width: 48px; height: 48px; margin: 2px 0 0; }
     .sinal h3 { font-size: 1.28rem; margin-bottom: .3em; }
 }
-.nota-centro { max-width: 600px; margin: 0 auto; text-align: center; font-size: .86rem; color: var(--texto-2); }
+/* Nota final: dois traços decorativos, um de cada lado, e o texto em duas linhas (no celular, um traço curto em cima e outro embaixo) */
+.nota-centro { display: flex; flex-direction: column; align-items: center; gap: 14px; max-width: 1000px; margin: 0 auto; text-align: center; font-size: .9rem; color: var(--texto-2); }
+.nota-centro::before, .nota-centro::after { content: ""; width: 56px; height: 1px; background: var(--salvia); opacity: .7; }
+.nota-centro span { max-width: 500px; text-wrap: balance; }
+@media (min-width: 768px) { .nota-centro { flex-direction: row; gap: 32px; } .nota-centro::before, .nota-centro::after { flex: 1 1 40px; width: auto; } .nota-centro span { flex: none; } }
 
 /* ---------- Em números (contagem animada ao entrar na tela) ---------- */
 .secao-numeros { background: var(--areia); }
