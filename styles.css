@@ -377,10 +377,33 @@ html:not(.js) .palavra { opacity: 1; transform: none; }
 .sinal-chamada::after { background-image: url("assets/marca/simbolo-creme.webp"); opacity: .1; }
 .sinal-chamada h3 { color: var(--creme); }
 .sinal-chamada p { color: rgba(245, 238, 221, .86); margin-bottom: 20px; }
+/* Reajuste do bloco "Para quem é" (27/11/2026, a partir da proposta do ChatGPT, só com a paleta):
+   cartões em xadrez (claro, oliva, claro / terracota, claro, chamada), com o cartão da chamada como o mais forte,
+   marca-texto em "está na hora" e fundo com degradê e o símbolo da marca. Para mudar a cor de um cartão, mexa nos :nth-child abaixo. */
+#para-quem { background: linear-gradient(180deg, var(--creme) 0%, #EFE7D2 100%); }
+#para-quem::before { content: ""; position: absolute; right: -90px; top: 110px; width: 420px; aspect-ratio: 417 / 451; background: url("assets/marca/simbolo-salvia.webp") center / contain no-repeat; opacity: .1; pointer-events: none; }
+#para-quem > .conteiner { position: relative; }
+/* Terracota escuro sobre a faixa clara: contraste de título grande (acima de 3:1) */
+#para-quem-titulo em { display: inline-block; padding: 0 .3em .06em; margin: 0 -.12em; border-radius: 14px; font-size: 1.08em; color: var(--terracota-escuro); background: linear-gradient(transparent 8%, rgba(217, 176, 143, .5) 8%); }
+.sinal { border-top: 3px solid var(--terracota); box-shadow: 0 16px 30px -20px rgba(44, 48, 18, .45); }
+.sinal-icone { background: var(--oliva); color: var(--creme); }
+.sinais > .sinal:nth-child(2), .sinais > .sinal:nth-child(4) { border-color: transparent; border-top-color: var(--terracota-clara); }
+.sinais > .sinal:nth-child(2) { background: var(--oliva); }
+.sinais > .sinal:nth-child(4) { background: var(--terracota-fundo); }
+.sinais > .sinal:nth-child(2) h3, .sinais > .sinal:nth-child(4) h3 { color: var(--creme); }
+.sinais > .sinal:nth-child(2) p, .sinais > .sinal:nth-child(4) p { color: rgba(245, 238, 221, .92); }
+.sinais > .sinal:nth-child(2)::after, .sinais > .sinal:nth-child(4)::after { background-image: url("assets/marca/simbolo-creme.webp"); opacity: .1; }
+.sinais > .sinal:nth-child(2) .sinal-icone { background: var(--creme); color: var(--oliva); }
+.sinais > .sinal:nth-child(4) .sinal-icone { background: var(--creme); color: var(--terracota-fundo); }
+/* Cartão da chamada: o mais escuro e o de texto maior da seção */
+.sinal-chamada { background: var(--oliva-escuro); border-color: var(--oliva-escuro); border-top-color: var(--terracota-clara); }
+.sinal-chamada h3 { font-size: 1.75rem; }
+.sinal-chamada p { font-size: 1.02rem; color: rgba(245, 238, 221, .95); }
 @media (hover: hover) {
     .sinal.visivel:hover { transform: translateY(-6px); box-shadow: var(--sombra); }
     .sinal:hover .sinal-icone { transform: rotate(-8deg) scale(1.06); background: var(--terracota-fundo); color: var(--creme); }
     .sinal:hover::after { transform: rotate(-10deg) scale(1.08); opacity: .2; }
+    .sinais > .sinal:nth-child(2):hover .sinal-icone, .sinais > .sinal:nth-child(4):hover .sinal-icone { background: var(--terracota-clara); color: var(--oliva-escuro); }
 }
 /* Celular: ícone ao lado do texto, para os cinco sinais caberem em menos rolagem */
 @media (max-width: 599px) {
