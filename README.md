@@ -13,7 +13,7 @@ Landing page da **empresa Correia**, de fisioterapia domiciliar para pessoas ido
 | 1. Preparação | Feita: pasta no Drive, repositório e kit adaptado. Faltam nome oficial, dados da empresa e domínio |
 | 2. Questionários | Os 4 da empresa foram criados e o "Nosso levantamento" foi preenchido (dados públicos, normas e concorrentes, em 25 e 26/11/2026). Aguardam as respostas da Júlia |
 | 3. Roteiro | Primeira versão dentro da prévia 1, a validar com as respostas |
-| 4. Construção | Prévia 1 interna feita em 26/11/2026 (estrutura, identidade, formulário, cookies, política e 404). Ainda não publicada |
+| 4. Construção | Prévia 1 interna feita e refinada em 26/11/2026 (estrutura, identidade, formulário, cookies, política, 404, botões com efeito, peça "ponte" e guia do GTM). Ainda não publicada |
 | 5 em diante | Não iniciadas |
 
 ## O que o site terá (plano, a validar no briefing)
@@ -45,7 +45,7 @@ Detalhes visuais do site: os **elos** (dois anéis que se desenham em volta das 
 ├── 404.html
 ├── assets/marca/    # Logotipo, símbolo, ladrilho e favicon (WebP/PNG otimizados)
 ├── assets/fundadora/# Fotos da Júlia (WebP, 2 tamanhos cada)
-├── docs/            # (a criar) sites-espelho e passo a passo do GTM
+├── docs/            # gtm-passo-a-passo.md (pronto, para o gestor de tráfego); sites-espelho (a criar)
 └── .gitignore
 ```
 
@@ -59,7 +59,7 @@ Detalhes visuais do site: os **elos** (dois anéis que se desenham em volta das 
 
 ## Para retomar o trabalho (leia antes de continuar)
 
-Estado em 26/11/2026: a **prévia 1 está pronta e interna**, ainda sem publicar. Os 4 questionários da empresa (Profissional, Persona, Mercado e Concorrentes) estão completos no Drive, na pasta @CorreiaSaúde, e aguardam o envio e as respostas da Júlia. Os documentos ficam no Drive; nada deles entra neste repositório.
+Estado em 27/11/2026: a **prévia 1 está pronta, refinada e interna**, ainda sem publicar (a branch de trabalho é `claude/dazzling-hypatia-jxmzo2`; a publicação sai da `main`, só depois da revisão e da aprovação do Felipe). Os 4 questionários da empresa (Profissional, Persona, Mercado e Concorrentes) estão completos no Drive, na pasta @CorreiaSaúde, e aguardam o envio e as respostas da Júlia. Os documentos ficam no Drive; nada deles entra neste repositório.
 
 **Decisões já tomadas (Felipe)**
 - Este repositório é o site da **empresa**; o site pessoal da Júlia é outro projeto e não se mistura.
@@ -67,14 +67,19 @@ Estado em 26/11/2026: a **prévia 1 está pronta e interna**, ainda sem publicar
 - O nome oficial da empresa continua pendente: nos textos, só "Correia".
 - O modelo do site segue o padrão das LPs anteriores (estrutura e engenharia); identidade, textos e fotos são só da Correia.
 - Publicar a prévia só depois da revisão independente (`/previa`), sempre com `noindex`.
+- **Botões de WhatsApp (26/11):** todos levam `.botao-destaque`, o efeito pulsante do site da Nayane (degradê que desliza, halo, brilho, ícone balançando) nas cores da Correia. A animação pausa fora da tela (`.parada`, no `script.js`) e some com "reduzir movimento".
+- **Ponte (26/11):** a faixa verde e o letreiro terracota saíram; no lugar, uma peça única verde-oliva sobre a divisa do topo (`.ponte`: `index.html`, `styles.css`, `script.js`). Fundo oliva quase uniforme com grão fino, moldura metálica rosada, fio com vão em volta dos anéis, hover **bege `#D9B08F`** (a luz corre pelo fio, que nunca some). Os atrasos da entrada valem só até a classe `.pronta`. Textos iguais aos de antes, sem conteúdo novo.
+- **Fluxo com o ChatGPT (inspiração visual):** o Felipe usa o ChatGPT para gerar imagens de referência; o Claude escreve o prompt **em texto, no chat** (sem arquivo), pedindo **uma só imagem** quando for um refinamento, com as cores, os textos e as travas de publicidade do projeto. O Claude implementa e confere antes de aplicar. O ChatGPT já inventou texto novo e símbolo falso de marca: nunca usar sem conferir.
+- **Pastas ignoradas pelo git:** `capturas/` (antes e depois, recortes) e `interno/` (prévia privada).
 
 **Próximos passos**
+0. Reajuste **bloco por bloco** com o Felipe (próximos blocos a definir). A revisão independente (`revisor`) ainda **não foi rodada** nesta versão.
 1. Felipe envia os questionários à Júlia (acesso de editor a ela; decidir sobre a conta com acesso à pasta).
 2. Com as respostas: rodar `/briefing`, trocar os textos de rascunho e preencher as fichas da equipe, os bairros, os planos e os dados da empresa.
 3. Rodar `/previa` (revisão independente, publicação com `noindex`, mensagem para a cliente).
-4. Prévia 2: ajustes, GTM com o ID do gestor de tráfego, dados para o Google, `docs/gtm-passo-a-passo.md`.
+4. Prévia 2: ajustes, GTM com o ID do gestor de tráfego (o guia `docs/gtm-passo-a-passo.md` já existe, com os IDs pendentes), dados para o Google (`ld+json`, `canonical`, `og:*`, `sitemap.xml`).
 
-**Como o Felipe prefere trabalhar:** respostas curtas quando ele pedir; conferência completa de cada arquivo antes de liberar; avisar antes de qualquer ação que mude permissões ou publique algo.
+**Como o Felipe prefere trabalhar:** respostas curtas quando ele pedir; prefere ver o antes e depois (imagem) e a prévia privada antes de decidir; conferência completa de cada arquivo antes de liberar; avisar antes de qualquer ação que mude permissões ou publique algo.
 
 ## Pendências de conteúdo
 
