@@ -395,6 +395,32 @@ html:not(.js) .palavra { opacity: 1; transform: none; }
 .sinal-chamada::after { background-image: url("assets/marca/simbolo-creme.webp"); opacity: .1; top: auto; bottom: -34px; right: -26px; width: 120px; height: 130px; }
 .sinal-chamada h3 { font-size: 1.75rem; color: #FFFCF4; }
 .sinal-chamada p { font-size: 1.02rem; color: rgba(245, 238, 221, .95); }
+/* Reajuste aprovado em 27/11/2026 (a partir da referência do ChatGPT): cartões na horizontal, rótulo em pílula e botão cobre na chamada.
+   Para mexer: o fio vertical (::before) fica a 85 px da borda (20 de margem + 56 do ícone + 9 de vão); se mudar o ícone, mude o fio. */
+/* 2) Rótulo em pílula, com uma linha fina de cada lado */
+#para-quem .sobretitulo-pilula { display: flex; align-items: center; justify-content: center; gap: 0; width: 100%; max-width: 760px; margin: 0 auto 20px; }
+#para-quem .sobretitulo-pilula::before, #para-quem .sobretitulo-pilula::after { content: ""; flex: 1 1 40px; width: auto; height: 1px; background: linear-gradient(90deg, transparent, #C99A76); }
+#para-quem .sobretitulo-pilula::after { transform: scaleX(-1); }
+#para-quem .sobretitulo-pilula span { padding: 9px 28px; border: 1px solid rgba(201, 154, 118, .85); border-radius: 99px; background: rgba(251, 248, 240, .7); }
+
+/* 1) Cartões na horizontal: ícone à esquerda, fio vertical e texto à direita (a partir de 600 px; no celular já é assim) */
+@media (min-width: 600px) {
+    .sinal:not(.sinal-chamada) { display: grid; grid-template-columns: 56px 1fr; column-gap: 0; align-items: center; padding: 24px 20px; }
+    .sinal:not(.sinal-chamada) .sinal-icone { grid-row: 1 / span 2; width: 56px; height: 56px; margin: 0; }
+    .sinal:not(.sinal-chamada) .sinal-icone svg { width: 26px; height: 26px; }
+    .sinal:not(.sinal-chamada) h3 { font-size: 1.28rem; line-height: 1.2; }
+    .sinal:not(.sinal-chamada) h3 { grid-column: 2; align-self: end; margin: 0 0 .3em; }
+    .sinal:not(.sinal-chamada) p { grid-column: 2; align-self: start; }
+    /* fio vertical entre o ícone e o texto: 20 de margem + 56 do ícone + 9 de vão */
+    .sinal:not(.sinal-chamada)::before { content: ""; position: absolute; left: 85px; top: 24px; bottom: 24px; width: 1px; background: linear-gradient(transparent, #C99A76 20%, #C99A76 80%, transparent); opacity: .8; }
+    .sinal:not(.sinal-chamada) h3, .sinal:not(.sinal-chamada) p { padding-left: 20px; }
+    .sinal:not(.sinal-chamada)::after { top: auto; bottom: -22px; right: -14px; }
+}
+
+/* 3) Botão da chamada em cobre (terracota de fundo com degradê leve): texto creme com contraste 5,9:1 */
+.sinal-chamada .botao-destaque.botao-claro { background: linear-gradient(115deg, #8E5A3B, #A06640 55%, #8E5A3B); border: 1px solid rgba(243, 215, 188, .55); color: #FFFCF4; box-shadow: 0 14px 28px -14px rgba(0, 0, 0, .6); }
+.sinal-chamada .botao-destaque.botao-claro::after { background: linear-gradient(90deg, transparent, rgba(255, 236, 214, .35), transparent); }
+@media (hover: hover) { .sinal-chamada .botao-destaque.botao-claro:hover { background: linear-gradient(115deg, #7D4D31, #8E5A3B 55%, #7D4D31); border-color: rgba(243, 215, 188, .8); color: #FFFCF4; } }
 @media (hover: hover) {
     .sinal.visivel:hover { transform: translateY(-6px); box-shadow: var(--sombra); }
     .sinal:hover .sinal-icone { transform: rotate(-8deg) scale(1.06); background: var(--terracota-fundo); color: var(--creme); }
