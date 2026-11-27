@@ -129,7 +129,7 @@ body.sem-marcadores .pendente, body.sem-marcadores .marcador { display: none; }
 @media (hover: hover) { .link-seta:hover::after { transform: translateX(4px); } }
 
 /* ---------- Cabeçalho ---------- */
-.topo { position: sticky; top: 0; z-index: 900; background: rgba(245, 238, 221, .92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(62, 67, 27, .1); transition: box-shadow .3s var(--ease); }
+.topo { position: sticky; top: 0; z-index: 900; background: rgba(251, 248, 240, .92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(62, 67, 27, .1); transition: box-shadow .3s var(--ease); }
 .topo.rolou { box-shadow: var(--sombra-leve); }
 .topo-dentro { width: min(100% - 2 * var(--gutter), var(--largura)); margin-inline: auto; height: var(--header-h); display: flex; align-items: center; gap: 20px; }
 .marca { display: flex; align-items: center; text-decoration: none; margin-right: auto; min-width: 0; min-height: 44px; }
@@ -169,7 +169,9 @@ h3 { font-size: 1.4rem; }
 .hero.pronto .realce, html:not(.js) .realce { background-size: 100% 100%; }
 
 /* ---------- Topo ---------- */
-.hero { position: relative; overflow-x: clip; padding-top: clamp(30px, 5vw, 60px); background: linear-gradient(transparent 72%, var(--creme)), radial-gradient(circle at 88% 12%, rgba(167, 111, 78, .16), transparent 42%), radial-gradient(circle at 0% 70%, rgba(144, 143, 104, .2), transparent 42%), var(--creme); }
+/* Fundo do topo (aprovado em 27/11/2026): degradê diagonal do creme-claro, à esquerda, a um creme mais quente, à direita,
+   com um brilho terracota suave atrás da foto. Só tons da paleta. A faixa de baixo volta ao creme da próxima seção. */
+.hero { position: relative; overflow-x: clip; padding-top: clamp(30px, 5vw, 60px); background: linear-gradient(transparent 80%, var(--creme)), radial-gradient(circle at 80% 24%, rgba(167, 111, 78, .15), transparent 36%), linear-gradient(135deg, #FBF8F0 0%, #F5EEDD 48%, #E9DFC6 100%); }
 .hero-ladrilho { position: absolute; inset: 0 0 30% 40%; background: url("assets/marca/ladrilho-oliva.webp") 0 0 / 110px 110px repeat; opacity: .06; -webkit-mask-image: radial-gradient(circle at 80% 30%, #000, transparent 70%); mask-image: radial-gradient(circle at 80% 30%, #000, transparent 70%); pointer-events: none; }
 .hero-grade { position: relative; display: grid; gap: 48px; align-items: center; }
 /* Reajuste do topo (27/11/2026, a partir da proposta do ChatGPT, só com as cores da paleta):
